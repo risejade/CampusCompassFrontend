@@ -347,6 +347,34 @@ body {
 .small-box:hover,
 .big-box:hover {
   transform: translateY(-5px);
+
+
+  .dropdown-menu {
+  display: none; /* Initially hide the dropdown */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff; /* Dropdown background color */
+  border: 1px solid #ccc; /* Dropdown border */
+  padding: 8px;
+  z-index: 1;
+}
+
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 6px 12px;
+  margin: 6px 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0; /* Background color on hover */
+}
   transition: transform 0.3s ease-in-out;
 }
 
