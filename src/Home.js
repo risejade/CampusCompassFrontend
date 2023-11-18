@@ -176,7 +176,9 @@ function Home() {
   const handleLogout = () => {
     navigate('/landingpage');
   };
-
+  const handleBuildingInformation = () => {
+    navigate('/buildinginfo');
+  };
   return (
     <div>
       <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
@@ -214,7 +216,7 @@ function Home() {
               getContentAnchorEl={null}
             >
               <MenuItem onClick={() => handleItemClick('Search Building')}>Search Building</MenuItem>
-              <MenuItem onClick={() => handleItemClick('Building Information')}>Building Information</MenuItem>
+              <MenuItem onClick={handleBuildingInformation}>Building Information</MenuItem>
               <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
               <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
             </Menu>
