@@ -3,6 +3,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
@@ -27,52 +28,22 @@ body {
   max-width: 100%;
   margin: 0 auto;
 }
-.appbar {
-  margin-left: 630px;
-  display:flex;
-  position: relative;
-  align-items: center;
-  width: 1000px;
-}
 
-.appbar > div {
-  margin-left: 0px; /* Adjust this margin as needed */
-  margin-right: 0px; /* Add margin to create space between elements */
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-
-.appbar > div:first-child {
-  margin-left: 0; /* Remove left margin for the first child element */
-}
-
-.appbar > div:hover {
-  background-color: #62272C;
-  height: 70px;
-  width: 120px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #F6B460;
-  cursor: pointer;
-}
 .homebut,
 .about,
-.services,
-.logout{
-  display: flex;
-  color: #000;
-  width: 200px;
+.services {
+    margin-left: 5%;
 }
-
 
 @media (max-width: 768px) {
-  .appbar > div {
-    margin-left: 0;
-    margin-top: 10px;
-  }
+    .homebut,
+    .about,
+    .services {
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }
+
   
   .wotd {
     max-width: fit-content;
@@ -112,6 +83,46 @@ body {
     align-items: center;
 }
 
+.homebut{
+  margin-left: 750px;
+}
+.homebut:hover {
+  background-color: #62272C;
+  height: 70px;
+  width: 130px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.about{
+  margin-left: 150px;
+  position: relative;
+}
+.about:hover {
+  background-color: #62272C;
+  height: 70px;
+  width: 130px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.services{
+  margin-left: 150px;
+}
+.services:hover {
+  background-color: #62272C;
+  height: 70px;
+  width: 130px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
 .thecampuslog {
   border: none;
   background-color: transparent;
@@ -194,29 +205,149 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.dropdown-menu {
-  display: none; /* Initially hide the dropdown */
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff; /* Dropdown background color */
-  border: 1px solid #ccc; /* Dropdown border */
-  padding: 8px;
-  z-index: 1;
+
+.additional-box {
+  background: linear-gradient(to bottom, rgba(78, 30, 34, 0.75), rgba(246, 180, 96, 0.75));
+  color: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  width: 450;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.dropdown-menu button {
-  display: block;
+.gallery-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.gallery-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
   width: 100%;
-  text-align: left;
-  padding: 6px 12px;
-  margin: 6px 0;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.dropdown-menu button:hover {
-  background-color: #f0f0f0; /* Background color on hover */
+.gallery-item {
+  text-align: center;
+  margin: 5px;
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  width: 30%;
+  max-width: 350px;
+  flex-grow: 1;
 }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+@font-face {
+  font-family: 'Baloo Chettan';
+  src: url('./CCimage/BalooChettan-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.gallery-title {
+  font-family: 'Baloo Chettan', sans-serif;
+  font-size: 100px;
+  color: #000000;
+  margin-bottom: 10px;
+  margin-top: 0.5px;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+/* Updated CSS for the beautified dashboard boxes */
+.dashboard-box {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+  color: #000000; /* Adjust text color */
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.dashboard-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.small-boxes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.small-box {
+  background-color: rgba(255, 255, 255, 0.5); /* White background with opacity */
+  color: #fff; /* Adjust text color */
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: calc(48% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.big-box {
+  background-color: rgba(255, 255, 255, 0.5); /* White background with opacity */
+  color: #fff; /* Adjust text color */
+  padding: 20px;
+  border-radius: 10px;
+  width: calc(48% - 20px);
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-title {
+  font-family: 'Baloo Chettan', sans-serif;
+  font-size: 100px;
+  color: #fff; /* Adjust text color */
+  margin-bottom: 5px;
+  margin-top: 0px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+/* Add hover effect for better user interaction */
+.small-box:hover,
+.big-box:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease-in-out;
+}
+
+
