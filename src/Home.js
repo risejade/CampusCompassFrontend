@@ -179,7 +179,7 @@ function Home() {
 
   return (
     <div>
-      <AppBar position="static" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
+      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
         <Toolbar variant="dense">
           <button className='thecampuslog' onClick={handleLandingPage}>
             <img src={campusLogo} alt="The Campus Logo" />
@@ -196,7 +196,7 @@ function Home() {
             </Typography>
           </div>
           <div className='services' style={{ cursor: 'pointer' }}>
-            <Button onClick={handleDropdownClick} style={{ color: 'black' }}>
+            <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
               Services
             </Button>
             <Menu
@@ -219,11 +219,11 @@ function Home() {
               <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
             </Menu>
           </div>
-          <div className='logout' onClick={handleLogout} style={{ cursor: 'pointer' }}>
-            <Typography variant="button">
-              Log out
-            </Typography>
-          </div>
+            <div className='logout' onClick={handleLogout} style={{ cursor: 'pointer' }}>
+              <Typography variant="button">
+                Log out
+              </Typography>
+            </div>
           </div>
         </Toolbar>
       </AppBar>
