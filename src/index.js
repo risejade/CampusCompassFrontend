@@ -11,6 +11,7 @@ import LandingPage from './LandingPage';
 import Signup from './Signup';
 import LoginPage from './LoginPage';
 import ForgotPassword from './ForgotPassword';
+import BuildingInformation from './BuildingInformation';
 
 ReactDOM.render(
   <Router>
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgotpass" element={<ForgotPassword />} />
+        <Route path="/buildinginfo" element={<BuildingInformation />} />
       </Routes>
     </React.StrictMode>
   </Router>,
