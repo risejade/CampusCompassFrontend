@@ -1,0 +1,78 @@
+body {
+    background-image: url('CCimage/aerial.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+body.landing-page::after {
+  content: "";
+  position: fixed;
+  top: 7.8%;
+  left: 16%;
+  width: 69%;
+  height: 69%;
+  background-image: url('CCimage/campus.png');
+  background-size: cover, contain;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+  border-radius: 50px;
+  z-index: 1;
+}
+.gear-overlay {
+  position: fixed;
+  top: 35%;
+  left: 21.64%;
+  width: 23.63%;
+  height: 27.24%; 
+  z-index: 2; 
+  animation: rotateGear 7s linear infinite; 
+}
+
+@keyframes rotateGear {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.getstarted {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 475px; 
+    margin-left: 495px;
+    margin-right: 500px;
+}
+
+.login1 {
+    width: 150px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: #4E1E22;
+    color: #f5c88c;
+    font-size: 25px;
+    border: 3px solid transparent; 
+    transition: border-color 0.5s ease; 
+  }
+  
+  .login1:hover {
+    border-color: #F6B460; 
+    box-shadow: 0 0 10px #F6B460; 
+  }
+  .signup {
+    width: 150px;
+    height: 80px;
+    border-radius: 20px;
+    background-color: #4E1E22;
+    color: #F6B460;
+    font-size: 25px;
+    border: 3px solid transparent; 
+    transition: border-color 0.5s ease; 
+  }
+  
+  .signup:hover {
+    border-color: #F6B460; 
+    box-shadow: 0 0 10px #F6B460; 
+  }
+  

@@ -1,0 +1,92 @@
+body {
+    background-image: url('CCimage/aerial.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+body.Signup-page::after {
+    content: "";
+    position: fixed; 
+    top: 15%;
+    left: 17.5%; 
+    width: 65%;
+    height: 80%;
+    background-image: url('CCimage/signup1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 36px;
+    z-index: 1; 
+    animation: borderGlow 2s infinite alternate; 
+}
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 20px #4E1E22; 
+    }
+    100% {
+        box-shadow: 0 0 20px #e6b87b, 0 0 30px #fb9918; 
+    }
+}
+
+.Signupcont{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 917px;
+    position: fixed;
+    z-index: 2;
+
+}
+.Signupcont1{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 374px;
+    position: fixed;
+    z-index: 2;
+}
+.Signup {
+    width: 175px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #4E1E22;
+    color: #F6B460;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: 2px solid #F6B460; 
+    transition: border-color 0.5s ease; 
+}
+.Signup:hover {
+    background-color: #F6B460;
+    color: #4E1E22;
+}
+.SignupText{
+    display: flex;
+    font-size: 30px;
+    font-weight: lighter;
+    margin-top: 25px;
+    margin-left: 455px;
+    padding-bottom: 0px;
+    position: fixed; 
+    z-index: 2;
+}
+.Signupatts{
+    position: relative; 
+    margin-top: 135px;
+    margin-left: 327px;
+    z-index: 2;
+}
+.Signupuser{
+    
+}
+.Signuppass{
+
+}
+.rempass{
+
+}
+.SignupTextFormat{
+    font-size: 40px;
+}

@@ -1,0 +1,392 @@
+body {
+  background-color: #aec6cf; /* Light gray background color */
+}
+.App {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@keyframes collapseaccdn {
+  0%{height: 0px}
+  50%{height: 50px}
+  100%{height: 100px}
+}
+
+@keyframes collapseaccdnclose { 
+  0%{height: 100px}
+  50%{height: 50px}
+  50%{height: 0%}
+}
+
+.divhidden{
+  overflow: auto;
+}
+.viewreplies{
+  text-shadow: 2px 2px 5px rgb(0, 247, 255);
+}
+.viewreplies:hover ~ .divhidden, .divhidden:hover{
+  display:block;
+  animation-name: collapseaccdn;
+  animation-duration: 2s;
+}
+.viewreplies:not(:hover) ~ .divhidden{
+  display:none;
+  animation-name: collapseaccdnclose;
+  animation-duration: 2s;
+}
+.postni{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #61dafb;
+  font-weight: bold;
+  margin-right: 1185px;
+}
+.replyni{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #61dafb;
+  font-weight: bold;
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.post {
+  position: relative;
+  padding: 10px;
+  text-align: right;
+  width: 80%;
+  margin: 15px auto;
+  padding: 30px;
+  width: 300px;
+  height: 300px;
+  background: #111845a6;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgb(23, 32, 90);
+  border: 2px solid #2a3cad;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: auto; /* Set a maximum height for the replies box */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #2074d4 #111845a6; /* Scrollbar track and thumb colors for Firefox */
+  /* For Webkit browsers (such as Chrome/Safari) */
+  &::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #2074d4; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners of the scrollbar thumb */
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #111845a6; /* Color of the scrollbar track */
+  }
+  /* Scrollbar animation and hover effect */
+  scrollbar-width: thin;
+  transition: scrollbar-color 0.3s ease;
+}
+
+/* Add hover effect to scrollbar */
+.post:hover {
+  scrollbar-color: #42e3ff #35424a; /* Change scrollbar colors on hover for Firefox */
+  /* For Webkit browsers (such as Chrome/Safari) */
+  &::-webkit-scrollbar-thumb {
+    background-color: #05e6ff; /* Color of the scrollbar thumb on hover */
+  }
+}
+
+.post:before {
+  content: '';
+  position: flex;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.post:hover:before {
+  top: -50%;
+  transform: skewY(-5deg);
+}
+
+.post .content {
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px solid #f0a591;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 5px 10px rgba(9, 0, 0, 0.5);
+}
+
+.post span {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.post span:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.post span:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.post span:nth-child(3) {
+  transform: rotate(180deg);
+}
+
+.post span:nth-child(4) {
+  transform: rotate(270deg);
+}
+
+.post span:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #50dfdb;
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* Border Animation */
+.post {
+  border: 8px solid transparent;
+  border-image: linear-gradient(to right, #05e6ff, #6f93d6, #05e6ff, #6f93d6, #05e6ff) 50 round;
+  /* Animation */
+  animation: border-animation 4s linear infinite;
+}
+
+@keyframes border-animation {
+  0% {
+    border-image-source: linear-gradient(to right, #05e6ff, #05e6ff, #05e6ff, #6f93d6, #05e6ff);
+    border-image-slice: 20;
+  }
+  50% {
+    border-image-source: linear-gradient(to right, transparent, transparent, transparent, transparent, transparent);
+    border-image-slice: 20;
+  }
+  100% {
+    border-image-source: linear-gradient(to right, #05e6ff, #05e6ff, #05e6ff, #6f93d6, #05e6ff);
+    border-image-slice: 20;
+  }
+}
+
+.postapost{
+  margin-right: 5px;
+}
+.info {
+  margin-left: 115px;
+  max-width: fit-content;
+  border: 2px solid #1976d2;
+  border-radius: 10px;
+  padding: 5px;
+}
+.name{
+  max-width: 300px;
+  margin-left: 55px;
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards infinite;
+  font-family: 'Pacifico', cursive;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.homebut{
+  margin-left: 710px;
+}
+.containerlogin{
+  margin-top: 10px;
+  margin-right: 1095px;
+}
+.about{
+  margin-left: 75px;
+}
+.contact{
+  margin-left: 75px;
+}
+.logout{
+  margin-left: 75px;
+}
+.prevnextcontainer {
+  display: flex;
+  justify-content: space-between; 
+  margin-bottom: 20px; 
+  margin-left: 620px;
+  margin-right: 620px;
+}
+.prevnextcontainer:button{
+  margin: 0px 10px;
+  }
+
+.glow-on-hover {
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  background: #aec6cf;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 5px;
+}
+
+.glow-on-hover:active {
+  color: #aec6cf
+}
+
+.glow-on-hover:active:after {
+  background: transparent;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #aec6cf;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.glow-on-hover1 {
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  background: #aec6cf;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 5px;
+}
+
+.glow-on-hover1:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 5px;
+}
+
+.glow-on-hover1:active {
+  color: #aec6cf
+}
+
+.glow-on-hover1:active:after {
+  background: transparent;
+}
+
+.glow-on-hover1:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover1:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #aec6cf;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
