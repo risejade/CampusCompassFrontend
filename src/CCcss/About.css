@@ -34,27 +34,47 @@ body.about-page::after {
     justify-content: space-around; /* Adjust the space between images */
     align-items: center; /* Align items vertically in the center */
   }
-.rise{
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(1); /* Initial scale */
+      box-shadow: 0 0 10px rgba(0, 0, 255, 0); /* Initial shadow (transparent) */
+    }
+    to {
+      transform: scale(1.1); /* Scaled on hover */
+    }
+  }
+  
+  /* Your existing styles for individual image divs */
+  .rise, .yankee, .thesaly, .andre {
+    /* Your existing styles */
+    position: fixed;
+    z-index: 2;
+    transition: transform 0.3s ease; /* Adding smooth transition */
+  }
+  
+  /* Hover effect using keyframes */
+  .rise:hover, .yankee:hover, .thesaly:hover, .andre:hover {
+    animation: zoomIn 0.3s forwards; /* Apply animation on hover */
+  }
+  
+  /* Adjusted margins */
+  .rise {
     margin-top: 280px;
     margin-right: 835px;
-    position: fixed;
-    z-index: 2;
-}
-.yankee{
+  }
+  
+  .yankee {
     margin-top: 300px;
     margin-right: 267px;
-    position: fixed;
-    z-index: 2;
-}
-.thesaly{
+  }
+  
+  .thesaly {
     margin-top: 300px;
     margin-left: 300px;
-    position: fixed;
-    z-index: 2;
-}
-.andre{
+  }
+  
+  .andre {
     margin-top: 300px;
     margin-left: 865px;
-    position: fixed;
-    z-index: 2;
-}
+  }
