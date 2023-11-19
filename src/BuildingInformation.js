@@ -4,6 +4,13 @@ import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Card } from '@mui/
 import './CCcss/BuildingInformation.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import GLE from './CCcss/CCimage/GLE.jpg';
+import SAL from './CCcss/CCimage/SAL.jpg';
+import RTL from './CCcss/CCimage/RTL.jpg';
+import GYM from './CCcss/CCimage/GYM.jpg';
+import ACADS from './CCcss/CCimage/ACADS.jpg';
+import NGE from './CCcss/CCimage/NGE.png';
+import PE from './CCcss/CCimage/PE.jpg';
+import ELEM from './CCcss/CCimage/ELEM.jpg';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
 function BuildingInformation() {
@@ -129,7 +136,7 @@ function BuildingInformation() {
       <div className="App">
       <div className="col">
         <Card
-          imgSrc={GLE} 
+          imgSrc={ACADS} 
           imgAlt="Card Image 1"
           title="ACADEMIC BUILDING"
           description="Academic Building Inaugurated in 2006, this building hosts the College of Engineering and Architecture.
@@ -145,7 +152,7 @@ function BuildingInformation() {
           link="card2"
         />
         <Card
-          imgSrc={GLE} 
+          imgSrc={ELEM} 
           imgAlt="Card Image 3"
           title="EELEMENTARY BUILDING"
           description="Elementary Building Opened in 1992, the building hosts the school's nursery school, kindergarten, and elementary department. It also hosts a playground open to the school's younger students."
@@ -155,7 +162,7 @@ function BuildingInformation() {
       </div>
       <div className="col">
         <Card
-          imgSrc={GLE} 
+          imgSrc={NGE} 
           imgAlt="Card Image 1"
           title="NGE"
           description="Dr. Nicolas G. Escario, Sr. Building
@@ -172,7 +179,7 @@ function BuildingInformation() {
           link="card2"
         />
         <Card
-          imgSrc={GLE} 
+          imgSrc={SAL} 
           imgAlt="Card Image 3"
           title="SAL"
           description="Don Simplicio A. Lizares Building Opened in 1999, the building was originally called the High School building. In 2018, it was renamed as the Don Simplicio A. Lizares Building, to honor the school's first Chairman of the Board of Trustees."
@@ -181,7 +188,7 @@ function BuildingInformation() {
       </div>
       <div className="col">
         <Card
-          imgSrc={GLE}
+          imgSrc={PE}
           imgAlt="Card Image 1"
           title="P.E AREA"
           buttonText="Read More"
@@ -189,7 +196,7 @@ function BuildingInformation() {
         />
 
         <Card
-          imgSrc={GLE} 
+          imgSrc={RTL} 
           imgAlt="Card Image 3"
           title="RTL"
           description="Don Rodolfo T. Lizares, Sr. Building
@@ -198,7 +205,7 @@ function BuildingInformation() {
           link="card2"
         />
         <Card
-          imgSrc={GLE} 
+          imgSrc={GYM} 
           imgAlt="Card Image 3"
           title="SCHOOL GYMNASIUM"
           description="CIT-U Gymnasium Constructed in 2004, this air-conditioned gymnasium is located behind the Don Simplicio A. Lizares Building and is where events and ceremonies are held. PE classes and other recreational activities also occur here."
