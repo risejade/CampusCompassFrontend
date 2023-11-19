@@ -64,6 +64,25 @@ function About() {
         </div>
         </Toolbar>
       </AppBar>
+      < div className='about-description'>
+        <p>
+        Meet the visionary minds behind 
+        CampusCompass! Faced with the 
+        universal challenge of navigating 
+        sprawling university campuses, 
+        our dynamic quartet embarked on
+        a mission to simplify the student 
+        experience. With a shared passion 
+        for enhancing campus life, we 
+        crafted this web app to make 
+        navigation a breeze. Join us 
+        on this journey to transform 
+        the way students explore their 
+        academic haven. Welcome to 
+        CampusCompass – where ease 
+        meets exploration!
+        </p>
+      </div>
         </div>
   );
 }

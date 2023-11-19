@@ -16,4 +16,16 @@ body.about-page::after {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 50px;
+    z-index: 1;
+}
+.about-description{
+    width: 700px;
+    text-align: justify;
+    position: relative;
+    margin-top: 120px;
+    margin-left: 590px;
+    color: white;
+    font-size: 20px;
+
+    z-index: 2;
 }
