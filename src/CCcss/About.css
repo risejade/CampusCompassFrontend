@@ -29,3 +29,31 @@ body.about-page::after {
 
     z-index: 2;
 }
+.rise{
+    height: 50px;
+    width:50px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+}
+.yankee{
+    height: 50px;
+    width:50px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+}
+.thesaly{
+    height: 50px;
+    width:50px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+}
+.andre{
+    height: 50px;
+    width:50px;
+    margin-top: 100px;
+    position: relative;
+    z-index: 2;
+}

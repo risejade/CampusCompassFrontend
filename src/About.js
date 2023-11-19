@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/About.css';
 import campusLogo from './CCcss/CCimage/campus.png';
+import rise from './CCcss/CCimage/rise.png';
+import yankee from './CCcss/CCimage/yank.png';
+import thesaly from './CCcss/CCimage/thes.png';
+import andre from './CCcss/CCimage/andre.png';
 
 function About() {
   const navigate = useNavigate();
@@ -83,7 +87,19 @@ function About() {
         meets exploration!
         </p>
       </div>
-        </div>
+          <div className='rise'>
+            <img src={rise} alt="The Campus Logo" />
+          </div>
+          <div className='yank'>
+            <img src={yankee} alt="The Campus Logo" />
+          </div>
+          <div className='thesaly'>
+            <img src={thesaly} alt="The Campus Logo" />
+          </div>
+          <div className='andre'>
+            <img src={andre} alt="The Campus Logo" />
+          </div>
+  </div>
   );
 }
 
