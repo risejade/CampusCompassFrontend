@@ -12,6 +12,7 @@ import Signup from './Signup';
 import LoginPage from './LoginPage';
 import ForgotPassword from './ForgotPassword';
 import BuildingInformation from './BuildingInformation';
+import ProfilePage from './ProfilePage';
 
 ReactDOM.render(
   <Router>
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgotpass" element={<ForgotPassword />} />
         <Route path="/buildinginfo" element={<BuildingInformation />} />
+        <Route path="/user-profile" element={<ProfilePage />} />
       </Routes>
     </React.StrictMode>
   </Router>,

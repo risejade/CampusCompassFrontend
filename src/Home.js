@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Menu, MenuItem, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Avatar  } from '@mui/material';
 import './CCcss/Home.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import hrLogo from './CCcss/CCimage/hrlogo.png';
@@ -176,12 +176,17 @@ function Home() {
   const handleLogout = () => {
     navigate('/landingpage');
   };
-  const handleBuildingInformation = () => {
+  const handleBuildingInfo = () => {
     navigate('/buildinginfo');
   };
+
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+
   return (
     <div>
-      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
+      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
         <Toolbar variant="dense">
           <button className='thecampuslog' onClick={handleLandingPage}>
             <img src={campusLogo} alt="The Campus Logo" />
@@ -197,7 +202,7 @@ function Home() {
               About Us
             </Typography>
           </div>
-          <div className='services' style={{ cursor: 'pointer' }}>
+          <div className='services' style={{ cursor: 'pointer' }} onClick={stopPropagation}>
             <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
               Services
             </Button>
@@ -216,15 +221,41 @@ function Home() {
               getContentAnchorEl={null}
             >
               <MenuItem onClick={() => handleItemClick('Search Building')}>Search Building</MenuItem>
-              <MenuItem onClick={handleBuildingInformation}>Building Information</MenuItem>
+              <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
               <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
               <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
             </Menu>
-          </div>
-            <div className='logout' onClick={handleLogout} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                Log out
-              </Typography>
+            <div className="profile-menu">
+              {user && (
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Avatar
+                    alt="User Profile"
+                    src="../CCcss/CCimage/rise.png" // Replace with user's profile image URL or data
+                    onClick={handleDropdownClick}
+                    style={{ cursor: 'pointer', marginRight: '10px' }}
+                  />
+                  <Menu
+                    anchorEl={anchorEl}
+                    open={Boolean(anchorEl)}
+                    onClose={handleDropdownClose}
+                    getContentAnchorEl={null}
+                    anchorOrigin={{
+                      vertical: 'bottom',
+                      horizontal: 'right',
+                    }}
+                    transformOrigin={{
+                      vertical: 'top',
+                      horizontal: 'right',
+                    }}
+                  >
+                    {/* Your dropdown menu items */}
+                    <MenuItem onClick={() => handleItemClick('Edit Profile')}>Edit Profile</MenuItem>
+                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                    {/* Other dropdown items */}
+                  </Menu>
+                </div>
+              )}
+              </div>
             </div>
           </div>
         </Toolbar>

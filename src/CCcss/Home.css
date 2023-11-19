@@ -405,3 +405,6 @@ body {
 }
   transition: transform 0.3s ease-in-out;
 }
+.profile-menu{
+  z-index: 3;
+}
