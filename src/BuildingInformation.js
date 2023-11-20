@@ -159,10 +159,9 @@ function BuildingInformation() {
           </div>
         </Toolbar>
       </AppBar>
-      
-      <div className="card-container">
+
       <div className="card-columns">
-      <CustomCard
+      <CustomCard 
           imgSrc={ACADS} 
           imgAlt="Card Image 1"
           title="ACADEMIC BUILDING"
@@ -196,9 +195,6 @@ function BuildingInformation() {
           buttonText="Read more"
           link="card2"
         />
-      </div>
-
-      <div className="col">
         <CustomCard
           imgSrc={NGE} 
           imgAlt="Card Image 1"
@@ -231,8 +227,6 @@ function BuildingInformation() {
           buttonText="Read more"
           link="card2"
         />
-      </div>
-      <div className="col">
       <CustomCard
           imgSrc={PE}
           imgAlt="Card Image 1"
@@ -264,8 +258,6 @@ function BuildingInformation() {
           buttonText="Read More"
           link="card2"
         />
-
-      </div>
     </div>
     </div>
     
