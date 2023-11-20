@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Card } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Menu,
+  MenuItem,
+  Button,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CardActions,
+} from '@mui/material';
 import './CCcss/BuildingInformation.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import GLE from './CCcss/CCimage/GLE.jpg';
@@ -17,6 +29,31 @@ function BuildingInformation() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
+
+  const CustomCard = ({ imgSrc, imgAlt, title, description, buttonText, link }) => {
+    return (
+      <Card>
+        <CardActionArea>
+          <CardMedia component="img" height="140" image={imgSrc} alt={imgAlt} />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {title}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {description}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        {buttonText && link && (
+          <CardActions>
+            <Button size="small" color="primary" href={link}>
+              {buttonText}
+            </Button>
+          </CardActions>
+        )}
+      </Card>
+    );
+  };
 
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -57,36 +94,9 @@ function BuildingInformation() {
     navigate('/landingpage');
   };
 
-  const Card = ({
-    imgSrc,
-    imgAlt,
-    title,
-    description,
-    buttonText,
-    link,
-  }) => {
-    return (
-      <div className="card-container">
-        {imgSrc && imgAlt && (
-          <img src={imgSrc} alt={imgAlt} className="card-img" />
-        )}
-        {title && <h1 className="card-title">{title}</h1>}
-        
-        {description && <p className="card-description">{description}</p>}
-        <button>
-        {buttonText && link && (
-          <a href={link} className="card-btn">
-            {buttonText}
-          </a>
-        )}
-        </button>
-      </div>
-    );
-  };
-
   return (
     <div >
-      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.😎' }}>
+      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
         <Toolbar variant="dense">
           <button className='thecampuslog' onClick={handleLandingPage}>
             <img src={campusLogo} alt="The Campus Logo" />
@@ -137,15 +147,15 @@ function BuildingInformation() {
       </AppBar>
       
       <div className="App">
-      <div className="col">
-        <Card
+      <div className="card-columns">
+      <CustomCard
           imgSrc={ACADS} 
           imgAlt="Card Image 1"
           title="ACADEMIC BUILDING"
           description="Academic Building Inaugurated in 2006, this building hosts the College of Engineering and Architecture.
           "
         />
-        <Card
+       <CustomCard
           imgSrc={GLE} 
           imgAlt="Card Image 2"
           title="ALLIED ENGINEERING"
@@ -154,7 +164,7 @@ function BuildingInformation() {
           buttonText="Read more"
           link="card2"
         />
-        <Card
+       <CustomCard
           imgSrc={ELEM} 
           imgAlt="Card Image 3"
           title="EELEMENTARY BUILDING"
@@ -164,7 +174,7 @@ function BuildingInformation() {
         />
       </div>
       <div className="col">
-        <Card
+        <CustomCard
           imgSrc={NGE} 
           imgAlt="Card Image 1"
           title="NGE"
@@ -173,7 +183,7 @@ function BuildingInformation() {
           buttonText="Read More"
           link="card1"
         />
-        <Card
+        <CustomCard
           imgSrc={GLE} 
           imgAlt="Card Image 3"
           title="GLE"
@@ -182,7 +192,7 @@ function BuildingInformation() {
           link="card2"
           
         />
-        <Card
+        <CustomCard
           imgSrc={SAL} 
           imgAlt="Card Image 3"
           title="SAL"
@@ -191,7 +201,7 @@ function BuildingInformation() {
         />
       </div>
       <div className="col">
-        <Card
+      <CustomCard
           imgSrc={PE}
           imgAlt="Card Image 1"
           title="P.E AREA"
@@ -199,7 +209,7 @@ function BuildingInformation() {
           link="card1"
         />
 
-        <Card
+        <CustomCard
           imgSrc={RTL} 
           imgAlt="Card Image 3"
           title="RTL"
@@ -208,7 +218,7 @@ function BuildingInformation() {
           buttonText="Read More"
           link="card2"
         />
-        <Card
+        <CustomCard
           imgSrc={GYM} 
           imgAlt="Card Image 3"
           title="SCHOOL GYMNASIUM"

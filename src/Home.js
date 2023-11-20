@@ -187,7 +187,7 @@ function Home() {
   const handleSearchBldg = () => {
     navigate('/SearchBuilding');
   };
-
+  
   return (
     <div>
       <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>

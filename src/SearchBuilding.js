@@ -171,6 +171,10 @@ function SearchBuilding() {
   const handleLogout = () => {
     navigate('/landingpage');
   };
+  const handleBuildingInfo = () => {
+    navigate('/buildinginfo');
+  };
+
 
   return (
     <div>
@@ -209,7 +213,7 @@ function SearchBuilding() {
                 getContentAnchorEl={null}
               >
                 <MenuItem onClick={() => handleItemClick('Search Building')}>Search Building</MenuItem>
-                <MenuItem onClick={() => handleItemClick('Building Information')}>Building Information</MenuItem>
+                <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
                 <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
                 <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
               </Menu>
