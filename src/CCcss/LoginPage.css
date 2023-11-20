@@ -7,7 +7,7 @@ body {
 
 body.Login-page::after {
     content: "";
-    position: fixed; 
+    position: relative; 
     top: 15%;
     left: 17.5%; 
     width: 65%;
@@ -30,22 +30,22 @@ body.Login-page::after {
     }
 }
 
-.logincont {
+.logincont1 {
     display: flex;
-    margin-top: 60px;
-    margin-left: 950px;
-    position: relative;
+    margin-top: 445px;
+    margin-left: 930px;
+    position: fixed;
     z-index: 2;
 }
 .signupcont{
     display: flex;
-    margin-top: 40px;
-    margin-left: 900px;
-    position: relative;
+    margin-top: 525px;
+    margin-left: 875px;
+    position: fixed;
     z-index: 2;
 }
 
-.login {
+.login1 {
     width: 150px;
     height: 40px;
     border-radius: 15px;
@@ -57,7 +57,7 @@ body.Login-page::after {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.login:hover {
+.login1:hover {
     background-color: #F6B460;
     color: #4E1E22;
 }
@@ -67,21 +67,12 @@ body.Login-page::after {
     font-weight: lighter;
     margin-top: 25px;
     margin-left: 970px;
-    position: relative; 
+    position: fixed;
     z-index: 2;
 }
 .loginatts{
-    position: relative; 
-    margin-top: 1px;
-    margin-left: 835px;
+    position: fixed;
+    margin-top: 130px;
+    margin-left: 807px;
     z-index: 2;
-}
-.user{
-    
-}
-.pass{
-
-}
-.rempass{
-
 }

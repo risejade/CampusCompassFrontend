@@ -32,16 +32,16 @@ body.Signup-page::after {
 
 .Signupcont{
     display: flex;
-    margin-top: 5px;
-    margin-left: 917px;
+    margin-top: 547px;
+    margin-left: 885px;
     position: fixed;
     z-index: 2;
 
 }
 .Signupcont1{
     display: flex;
-    margin-top: 5px;
-    margin-left: 374px;
+    margin-top: 547px;
+    margin-left: 350px;
     position: fixed;
     z-index: 2;
 }
@@ -66,26 +66,17 @@ body.Signup-page::after {
     display: flex;
     font-size: 30px;
     font-weight: lighter;
-    margin-top: 25px;
-    margin-left: 455px;
+    margin-top: 10px;
+    margin-left: 415px;
     padding-bottom: 0px;
     position: fixed; 
     z-index: 2;
 }
 .Signupatts{
-    position: relative; 
-    margin-top: 135px;
-    margin-left: 327px;
+    position: fixed; 
+    margin-top: 90px;
+    margin-left: 295px;
     z-index: 2;
-}
-.Signupuser{
-    
-}
-.Signuppass{
-
-}
-.rempass{
-
 }
 .SignupTextFormat{
     font-size: 40px;

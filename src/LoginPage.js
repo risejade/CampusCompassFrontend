@@ -117,8 +117,8 @@ function LoginPage() {
                         Forgot Password?</span>
             </div>
       </div>
-      <div className='logincont'>
-      <button className='login' onClick={handleHome} variant="outlined" >
+      <div className='logincont1'>
+      <button className='login1' onClick={handleHome} variant="outlined" >
         Login
       </button>
       </div>

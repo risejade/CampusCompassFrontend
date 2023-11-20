@@ -74,15 +74,15 @@ function LandingPage() {
         </div>
         </div>
         </Toolbar>
-      </AppBar>\
+      </AppBar>
       <div>
       <img src={campusGearLogo} alt="Campus Gear" class="gear-overlay"/>
       </div>
       <div className='getstarted'>
-        <button className='login1' onClick={handleLogin} variant='outlined' >
+        <button className='login2' onClick={handleLogin} variant='outlined' >
             Login
         </button>
-        <button className='signup'onClick={handleSignup} variant='outlined' >
+        <button className='signup2'onClick={handleSignup} variant='outlined' >
             Sign Up
         </button>
       </div>

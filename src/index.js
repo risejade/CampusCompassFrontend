@@ -13,6 +13,7 @@ import LoginPage from './LoginPage';
 import ForgotPassword from './ForgotPassword';
 import BuildingInformation from './BuildingInformation';
 import ProfilePage from './ProfilePage';
+import NewPassword from './NewPassword';
 
 ReactDOM.render(
   <Router>
@@ -29,6 +30,7 @@ ReactDOM.render(
         <Route path="/forgotpass" element={<ForgotPassword />} />
         <Route path="/buildinginfo" element={<BuildingInformation />} />
         <Route path="/user-profile" element={<ProfilePage />} />
+        <Route path="/update-password" element={<NewPassword />} />
       </Routes>
     </React.StrictMode>
   </Router>,
