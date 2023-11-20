@@ -1,5 +1,3 @@
-// Home.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Avatar  } from '@mui/material';
@@ -53,11 +51,12 @@ function GalleryItem({ src, description }) {
   return (
     <div className="gallery-item">
       <img src={src} alt={description} />
-      <p>{description}</p>
+      <div className="text-overlay">
+        <p>{description}</p>
+      </div>
     </div>
   );
 }
-
 // GalleryBox component
 function GalleryBox() {
   return (
@@ -69,9 +68,9 @@ function GalleryBox() {
         <GalleryItem src={CITLib} description="The new library now called as the Learning Resource and Activity Center (LRAC)" />
       </div>
       <div className="gallery-row">
-        <GalleryItem src={CITCr} description="The state-of-the-art restrooms in the LRAC" />
+        <GalleryItem src={CITCr} description="The state-of-the-art restrooms in the Learning Resource and Activity Center" />
         <GalleryItem src={Lounge} description="The Wildcats Lounge, a coffee shop inside the campus ran by the students" />
-        <GalleryItem src={WallFame} description="The Wall of Fame donned with the names of Topnotchers and the Kings and Queens of Engineers" />
+        <GalleryItem src={WallFame} description="The Wall of Fame with the Topnotchers and the Kings and Queens of Engineers" />
       </div>
     </div>
   );
