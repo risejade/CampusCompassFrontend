@@ -45,7 +45,7 @@ body.landing-page::after {
     margin-right: 500px;
 }
 
-.login1 {
+.login2 {
     width: 150px;
     height: 80px;
     border-radius: 20px;
@@ -56,11 +56,11 @@ body.landing-page::after {
     transition: border-color 0.5s ease; 
   }
   
-  .login1:hover {
+  .login2:hover {
     border-color: #F6B460; 
     box-shadow: 0 0 10px #F6B460; 
   }
-  .signup {
+  .signup2 {
     width: 150px;
     height: 80px;
     border-radius: 20px;
@@ -71,7 +71,7 @@ body.landing-page::after {
     transition: border-color 0.5s ease; 
   }
   
-  .signup:hover {
+  .signup2:hover {
     border-color: #F6B460; 
     box-shadow: 0 0 10px #F6B460; 
   }

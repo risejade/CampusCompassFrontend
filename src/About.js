@@ -68,6 +68,7 @@ function About() {
         </div>
         </Toolbar>
       </AppBar>
+      <div className='container-aboutus'>
       < div className='about-description'>
         <p>
         Meet the visionary minds behind 
@@ -87,18 +88,21 @@ function About() {
         meets exploration!
         </p>
       </div>
-          <div className='rise'>
-            <img src={rise} alt="The Campus Logo" />
+        <div className='image-container'>
+            <div className='rise'>
+              <img src={rise} alt="The Campus Logo" style={{ position: 'relative', width: '265px', height: 'auto' }} />
+            </div>
+            <div className='yankee'>
+              <img src={yankee} alt="The Campus Logo" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+            </div>
+            <div className='thesaly'>
+              <img src={thesaly} alt="The Campus Logo" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+            </div>
+            <div className='andre'>
+              <img src={andre} alt="The Campus Logo" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+            </div>
           </div>
-          <div className='yank'>
-            <img src={yankee} alt="The Campus Logo" />
-          </div>
-          <div className='thesaly'>
-            <img src={thesaly} alt="The Campus Logo" />
-          </div>
-          <div className='andre'>
-            <img src={andre} alt="The Campus Logo" />
-          </div>
+      </div>
   </div>
   );
 }

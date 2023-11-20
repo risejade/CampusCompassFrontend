@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography,} from '@mui/material';
-import './CCcss/ForgotPassword.css';
+import './CCcss/NewPassword.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 
-function ForgotPassword() {
+function NewPassword() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   
@@ -37,13 +37,7 @@ function ForgotPassword() {
     navigate('/landingpage');
   };
   const handleForgotPass = () => {
-    navigate('/forgotpass')
-  };
-  const handleSignUp = () => {
-    navigate('/signup');
-  };
-  const handleUpdatePass = () => {
-    navigate('/update-password')
+    navigate('/forgotpass');
   };
 
   return (
@@ -72,17 +66,17 @@ function ForgotPassword() {
         </div>
         </Toolbar>
       </AppBar>
-      <div className='Forgotpass'>
-        <h2 className='forgottextFormat'>
-          Forgot Password
+      <div className='newpass'>
+        <h2 className='newtextFormat'>
+          Update Password
         </h2>
       </div>
-      <div className='forgotatts'>
+      <div className='newpassatts'>
         <h3>
-            Enter your email
+            New Password
         </h3>
         <div className='user'>
-            <input type="text" id="uname" placeholder="Enter your email"
+            <input type="text" id="uname" placeholder="Enter your new password"
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -93,18 +87,34 @@ function ForgotPassword() {
                 borderRadius: '10px',
                 padding: '10px' }}/>
             </div>
+        <h3>
+            Confirm Password
+        </h3>
+        <div className='pass'>
+              <input type="password" id="npword"  placeholder="Confirm your password" 
+              style={{ 
+                fontSize:'17px',
+                color:'#4E1E22', 
+                width: '350px', 
+                height: '30px', 
+                border: 'none', 
+                backgroundColor: '#F6B460', 
+                borderRadius: '10px',
+                padding: '10px' 
+                }}/>
+            </div>
       </div>
-      <div className='logincont'>
-      <button className='login'  onClick={handleUpdatePass} variant="outlined" >
-        Verify Email
+      <div className='newcont'>
+      <button className='newlogin' onClick={handleLogin} variant="outlined" >
+        Change Password
       </button>
       </div>
-      <div className='backcont'>
-      <button className='back' onClick={handleLogin} variant="outlined" >
+      <div className='newbackcont'>
+      <button className='newback' onClick={handleForgotPass} variant="outlined" >
         back
       </button>
       </div>
     </div>
   );
 }
-export default ForgotPassword;
+export default NewPassword;
