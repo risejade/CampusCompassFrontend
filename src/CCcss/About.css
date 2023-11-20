@@ -3,6 +3,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
+    padding-top: 20px;
 }
 body.about-page::after {
     content: "";
@@ -19,11 +20,11 @@ body.about-page::after {
     z-index: 1;
 }
 .about-description{
-    width: 700px;
+    width: 670px;
     text-align: justify;
-    position: relative;
-    margin-top: 120px;
-    margin-left: 590px;
+    position: fixed;
+    margin-top: 75px;
+    margin-left: 575px;
     color: white;
     font-size: 20px;
 
@@ -60,21 +61,23 @@ body.about-page::after {
   
   /* Adjusted margins */
   .rise {
-    margin-top: 280px;
+    margin-top: 875px;
     margin-right: 835px;
   }
   
   .yankee {
-    margin-top: 300px;
+    margin-top: 900px;
     margin-right: 267px;
   }
   
   .thesaly {
-    margin-top: 300px;
+    margin-top: 900px;
     margin-left: 300px;
   }
   
   .andre {
-    margin-top: 300px;
+    margin-top: 900px;
     margin-left: 865px;
+  }
+  .container-aboutus{
   }
