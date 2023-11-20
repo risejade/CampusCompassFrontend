@@ -184,6 +184,10 @@ function Home() {
     event.stopPropagation();
   };
 
+  const handleSearchBldg = () => {
+    navigate('/SearchBuilding');
+  };
+
   return (
     <div>
       <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
@@ -220,7 +224,7 @@ function Home() {
               }}
               getContentAnchorEl={null}
             >
-              <MenuItem onClick={() => handleItemClick('Search Building')}>Search Building</MenuItem>
+              <MenuItem onClick={handleSearchBldg}>Search Building</MenuItem>
               <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
               <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
               <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
