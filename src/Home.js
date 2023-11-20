@@ -274,6 +274,11 @@ function Home() {
       {/* Include the AdditionalBox component below the other components */}
       <AdditionalBox />
       <DashboardBox />
+      <div className="footer">
+        <img src={hrLogo} alt="HR Logo" className='hr-logo' />
+        <br /> {/* Add a line break to separate the logos */}
+        <img src={campusLogo} alt="Campus Logo" className='campus'/>
+      </div>
     </div>
   );
 }

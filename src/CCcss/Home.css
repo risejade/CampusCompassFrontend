@@ -344,6 +344,7 @@ body {
 }
 
 /* Updated CSS for the beautified dashboard boxes */
+
 .dashboard-box {
   background: linear-gradient(to bottom, rgba(78, 30, 34, 0.75), rgba(246, 180, 96, 0.75));
   color: #000000; /* Adjust text color */
@@ -355,6 +356,17 @@ body {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
   font-weight: bold;
   font-size: 24px;
+  position: relative;
+}
+
+.dashboard-box::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
 }
 
 .dashboard-content {
@@ -454,4 +466,35 @@ body {
 }
 .profile-menu{
   z-index: 3;
+}
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 25px;
+  margin-top: 50px;
+  text-align: left;
+}
+
+.hr-logo {
+  width: 150px;
+  margin-left: 30px;
+  margin-bottom: -45px;
+}
+
+.campus {
+  width: 200px;
+  padding: 5px;
+  margin-top: 2px;
+}
+
+
+.contact-text {
+  font-family: 'Baloo Chettan', sans-serif;
+  text-align: left;
+}
+
+.contact-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #000; /* Adjust text color */
 }
