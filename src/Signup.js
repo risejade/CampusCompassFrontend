@@ -4,10 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/Signup.css';
 import campusLogo from './CCcss/CCimage/campus.png';
+import axios from 'axios';
 
 function Signup() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    username: '',
+    email: '',
+    password: ''
+  });
   
   useEffect(() => {
     document.body.classList.add('Signup-page');
@@ -40,8 +47,38 @@ function Signup() {
   const handleForgotPass = () => {
     navigate('/forgotpass')
   };
-  const handleSignUp = () => {
-    navigate('/signup');
+
+  const handleSignup = async () => {
+    try {
+      const response = await axios.post('http://localhost:8080/usercampus/insertUsercampus', {
+        firstname: formData.name,
+        username: formData.username,
+        email: formData.email,
+        password: formData.password
+      });
+
+      // Assuming the signup was successful
+      console.log('User created:', response.data);
+
+      // Clear form data after successful submission if needed
+      setFormData({
+        name: '',
+        username: '',
+        email: '',
+        password: ''
+      });
+
+      // Redirect to login page or any other desired page after successful signup
+      navigate('/login');
+    } catch (error) {
+      // Handle error responses
+      console.error('Error creating user:', error);
+    }
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
   };
 
   return (
@@ -76,11 +113,14 @@ function Signup() {
         </h2>
       </div>
       <div className='Signupatts'>
-      <h3>
-            Name
-            </h3>
-            <div className='name1'>
-              <input type="name" id="name"  placeholder="Enter your name" 
+        <h3>Name</h3>
+        <div className='name1'>
+          <input
+            type="text"
+            id="name"
+            placeholder="Enter your name"
+            onChange={handleChange}
+            value={formData.name}
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
@@ -96,7 +136,12 @@ function Signup() {
             Username
         </h3>
         <div className='Signupuser'>
-            <input type="text" id="uname" placeholder="Enter your username"
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            onChange={handleChange}
+            value={formData.username}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -111,7 +156,12 @@ function Signup() {
             Email
           </h3>
             <div className='email'>
-              <input type="email" id="email"  placeholder="Enter your email" 
+            <input
+            type="text"
+            id="email"
+            placeholder="Enter your email"
+            onChange={handleChange}
+            value={formData.email}
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
@@ -127,7 +177,12 @@ function Signup() {
             Password
         </h3>
         <div className='Signuppass'>
-              <input type="password" id="npword"  placeholder="Enter your password" 
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            onChange={handleChange}
+            value={formData.password}
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
@@ -141,7 +196,7 @@ function Signup() {
             </div>
       </div>
       <div className='Signupcont'>
-        <button className='Signup' onClick={handleLogin} variant="outlined ">
+      <button className='Signup' onClick={handleSignup}>
           Create Account
         </button>
       </div>
