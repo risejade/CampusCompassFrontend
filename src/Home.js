@@ -131,6 +131,47 @@ function DashboardBox() {
   );
 }
 
+function Footer() {
+  return (
+    <div className="footer">
+      <div className="footer-content">
+      <div className="footer-pictures">
+          <img src={hrLogo} alt="HR Logo" className='hr-logo' />
+          <br /> {/* Add a line break to separate the logos */}
+          <img src={campusLogo} alt="Campus Logo" className='campus'/>
+        </div>
+        {/* Contact Info */}
+        <div className="contact-info">
+        <h1 className="contact-text">Contact us</h1>
+          {/* Placeholder icons for contact information */}
+          <address>
+            <p>
+            <span role="img" aria-label="Location">&#x1F4CD;</span> N. Bacalso Avenue, Cebu City <br />
+              Philippines <br />
+              <span role="img" aria-label="Email">&#x1F4E7;</span> Email: campuscompass@gmail.com <br />
+              <span role="img" aria-label="Phone">&#x260E;</span> Phone: +63 312345678
+            </p>
+          </address>
+        </div>
+
+        {/* Pictures */}
+        
+
+        {/* Quick Links */}
+        <div className="quick-links">
+        <h1 className='links'>Quick Links</h1>
+          {/* Add your quick links or any other content here */}
+          <ul className='link-list'>
+            <li>Link 1</li>
+            <li>Link 2</li>
+            <li>Link 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // Home component
 function Home() {
   const navigate = useNavigate();
@@ -274,11 +315,7 @@ function Home() {
       {/* Include the AdditionalBox component below the other components */}
       <AdditionalBox />
       <DashboardBox />
-      <div className="footer">
-        <img src={hrLogo} alt="HR Logo" className='hr-logo' />
-        <br /> {/* Add a line break to separate the logos */}
-        <img src={campusLogo} alt="Campus Logo" className='campus'/>
-      </div>
+      <Footer />
     </div>
   );
 }

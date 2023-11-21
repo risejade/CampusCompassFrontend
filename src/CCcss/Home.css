@@ -330,11 +330,9 @@ body {
   width: 100%;
 }
 
-/* Adjust the individual gallery items within the row */
 .gallery-item {
   margin: 10px;
 }
-
 
 @font-face {
   font-family: 'Baloo Chettan';
@@ -343,11 +341,9 @@ body {
   font-style: normal;
 }
 
-/* Updated CSS for the beautified dashboard boxes */
-
 .dashboard-box {
   background: linear-gradient(to bottom, rgba(78, 30, 34, 0.75), rgba(246, 180, 96, 0.75));
-  color: #000000; /* Adjust text color */
+  color: #000000;
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
@@ -391,8 +387,8 @@ body {
 }
 
 .small-box {
-  background-color: rgba(255, 255, 255, 0.5); /* White background with opacity */
-  color: #fff; /* Adjust text color */
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   padding: 20px;
   margin: 10px;
   border-radius: 10px;
@@ -406,8 +402,8 @@ body {
 }
 
 .big-box {
-  background-color: rgba(255, 255, 255, 0.5); /* White background with opacity */
-  color: #fff; /* Adjust text color */
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
   padding: 20px;
   border-radius: 10px;
   width: calc(48% - 20px);
@@ -423,26 +419,25 @@ body {
 .dashboard-title {
   font-family: 'Baloo Chettan', sans-serif;
   font-size: 100px;
-  color: #fff; /* Adjust text color */
+  color: #000;
   margin-bottom: 5px;
   margin-top: 0px;
   padding-top: 0px;
   text-align: center;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
-/* Add hover effect for better user interaction */
 .small-box:hover,
 .big-box:hover {
   transform: translateY(-5px);
 
-
   .dropdown-menu {
-  display: none; /* Initially hide the dropdown */
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: #fff; /* Dropdown background color */
-  border: 1px solid #ccc; /* Dropdown border */
+  background-color: #fff;
+  border: 1px solid #ccc;
   padding: 8px;
   z-index: 1;
 }
@@ -460,7 +455,7 @@ body {
 }
 
 .dropdown-menu button:hover {
-  background-color: #f0f0f0; /* Background color on hover */
+  background-color: #f0f0f0;
 }
   transition: transform 0.3s ease-in-out;
 }
@@ -487,14 +482,54 @@ body {
   margin-top: 2px;
 }
 
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-.contact-text {
-  font-family: 'Baloo Chettan', sans-serif;
+.contact-info,
+.footer-pictures,
+.quick-links {
+  flex: 1;
+}
+
+
+.footer-pictures {
   text-align: left;
 }
 
-.contact-text p {
+.quick-links {
+  text-align: right;
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
   margin: 0;
-  font-size: 16px;
-  color: #000; /* Adjust text color */
+}
+
+.quick-links li {
+  margin-bottom: 5px;
+}
+
+.contact-text {
+  font-family: 'Baloo Chettan', sans-serif;
+  font-size: 50px;
+  margin-top: -60px;
+  margin-bottom: 20px;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.links {
+  font-family: 'Baloo Chettan', sans-serif;
+  font-size: 50px;
+  margin-top: -60px;
+  margin-bottom: 20px;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+.contact-info {
+  text-align: center;
+  font-size: 17px;
 }
