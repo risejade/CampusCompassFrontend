@@ -4,10 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/LoginPage.css';
 import campusLogo from './CCcss/CCimage/campus.png';
+import axios from 'axios';
 
 function LoginPage() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
   
   useEffect(() => {
     document.body.classList.add('Login-page');
@@ -17,15 +21,42 @@ function LoginPage() {
     };
   }, []);
 
-  const handleHome = () => {
-    setUser();
-    navigate('/home'); 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+  
+    try {
+      const response = await axios.post('http://localhost:8080/usercampus/getAllUsercampus', {
+        username,
+        password,
+      });
+  
+      // Assuming the API response contains a success status or a token upon successful login
+      const { success, token } = response.data;
+  
+      if (success) {
+        // Handle successful login, e.g., set user session with token, redirect, etc.
+        console.log('Login successful!');
+        // You can set the token in session storage or cookies for authentication
+  
+        navigate('/home'); // Redirect to home page after successful login
+      } else {
+        // Handle login failure
+        console.error('Login failed:', response.data.error);
+        setLoginError('Invalid username or password');
+      }
+    } catch (error) {
+      // Handle network errors or other exceptions
+      console.error('Login failed:', error);
+      setLoginError('An error occurred while logging in');
+    }
   };
 
   const handleAbout = () => {
     navigate('/about'); 
   };
-
+  const handleHome = () => {
+    navigate('/home'); 
+  };
   const handleContact = () => {
     navigate('/contact');
   };
@@ -75,7 +106,11 @@ function LoginPage() {
             Username
         </h3>
         <div className='user'>
-            <input type="text" id="uname" placeholder="Enter your username"
+        <input
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -90,7 +125,11 @@ function LoginPage() {
             Password
         </h3>
         <div className='pass'>
-              <input type="password" id="npword"  placeholder="Enter your password" 
+        <input
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
@@ -118,7 +157,7 @@ function LoginPage() {
             </div>
       </div>
       <div className='logincont1'>
-      <button className='login1' onClick={handleHome} variant="outlined" >
+      <button className='login1' onClick={handleLogin} variant="outlined" >
         Login
       </button>
       </div>

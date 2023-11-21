@@ -10,11 +10,13 @@ function Signup() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
-    name: '',
+    fname: '',
     username: '',
     email: '',
     password: ''
   });
+
+  const [successMessage, setSuccessMessage] = useState('');
   
   useEffect(() => {
     document.body.classList.add('Signup-page');
@@ -51,7 +53,7 @@ function Signup() {
   const handleSignup = async () => {
     try {
       const response = await axios.post('http://localhost:8080/usercampus/insertUsercampus', {
-        firstname: formData.name,
+        fname: formData.name,
         username: formData.username,
         email: formData.email,
         password: formData.password
@@ -60,9 +62,12 @@ function Signup() {
       // Assuming the signup was successful
       console.log('User created:', response.data);
 
+      // Show success message
+      setSuccessMessage('Account successfully created');
+
       // Clear form data after successful submission if needed
       setFormData({
-        name: '',
+        fname: '',
         username: '',
         email: '',
         password: ''
@@ -117,7 +122,7 @@ function Signup() {
         <div className='name1'>
           <input
             type="text"
-            id="name"
+            id="fname"
             placeholder="Enter your name"
             onChange={handleChange}
             value={formData.name}
@@ -209,6 +214,7 @@ function Signup() {
             cursor: 'pointer' 
             }} >Go to Login</span></p>
         </div>
+        {successMessage && <div className="success-message">{successMessage}</div>}
     </div>
   );
 }
