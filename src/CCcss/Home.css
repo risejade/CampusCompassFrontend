@@ -478,6 +478,9 @@ body {
   padding: 25px;
   margin-top: 50px;
   text-align: left;
+  max-width: 1380px;
+  margin-left: 25px;
+  border-radius: 10px;
 }
 
 .hr-logo {
