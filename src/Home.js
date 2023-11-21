@@ -13,6 +13,7 @@ import Lounge from './CCcss/CCimage/Lounge.jpg';
 import WallFame from './CCcss/CCimage/FameWall.jpg';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
+
 // IntroductionBox component
 function IntroductionBox() {
   return (
@@ -132,39 +133,49 @@ function DashboardBox() {
 }
 
 function Footer() {
+  const navigate = useNavigate();
+
+  const handleAboutUs = () => {
+    navigate('/about');
+  };
+
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleSignUp = () => {
+    navigate('/signup');
+  };
+
+  const handleBackToTop = () => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+  };
+
   return (
     <div className="footer">
       <div className="footer-content">
-      <div className="footer-pictures">
+        <div className="footer-pictures">
           <img src={hrLogo} alt="HR Logo" className='hr-logo' />
-          <br /> {/* Add a line break to separate the logos */}
+          <br />
           <img src={campusLogo} alt="Campus Logo" className='campus'/>
         </div>
-        {/* Contact Info */}
         <div className="contact-info">
-        <h1 className="contact-text">Contact us</h1>
-          {/* Placeholder icons for contact information */}
+          <h1 className="contact-text">Contact us</h1>
           <address>
             <p>
-            <span role="img" aria-label="Location">&#x1F4CD;</span> N. Bacalso Avenue, Cebu City <br />
-              Philippines <br />
+              <span role="img" aria-label="Location">&#x1F4CD;</span> N. Bacalso Avenue, Cebu City, Philippines <br />
               <span role="img" aria-label="Email">&#x1F4E7;</span> Email: campuscompass@gmail.com <br />
-              <span role="img" aria-label="Phone">&#x260E;</span> Phone: +63 312345678
+              <span role="img" aria-label="Phone">&#x260E;</span> Phone: +63 9562541563
             </p>
           </address>
         </div>
-
-        {/* Pictures */}
-        
-
-        {/* Quick Links */}
         <div className="quick-links">
-        <h1 className='links'>Quick Links</h1>
-          {/* Add your quick links or any other content here */}
+          <h1 className='links'>Quick Links</h1>
           <ul className='link-list'>
-            <li>Link 1</li>
-            <li>Link 2</li>
-            <li>Link 3</li>
+            <li onClick={handleAboutUs} style = {{ cursor: 'pointer'}} >About us</li>
+            <li onClick={handleLogin}style = {{ cursor: 'pointer'}} >Login</li>
+            <li onClick={handleSignUp}style = {{ cursor: 'pointer'}} >Sign Up</li>
+            <li onClick={handleBackToTop}style = {{ cursor: 'pointer'}} >Back to top</li>
           </ul>
         </div>
       </div>
