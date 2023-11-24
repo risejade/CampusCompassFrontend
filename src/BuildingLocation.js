@@ -13,7 +13,7 @@ import {
   CardContent,
   CardActions,
 } from '@mui/material';
-import './CCcss/BuildingInformation.css'; 
+import './CCcss/BuildingInformation.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import GLE from './CCcss/CCimage/GLE.jpg';
 import SAL from './CCcss/CCimage/SAL.jpg';
@@ -23,34 +23,17 @@ import ACADS from './CCcss/CCimage/ACADS.jpg';
 import NGE from './CCcss/CCimage/NGE.png';
 import PE from './CCcss/CCimage/PE.jpg';
 import ELEM from './CCcss/CCimage/ELEM.jpg';
-import GYMloc from './CCcss/CCimage/GYMloc.png'
-import GLEloc  from './CCcss/CCimage/GLEloc.png';
-import SALloc  from './CCcss/CCimage/SALloc.png';
-import RTLloc  from './CCcss/CCimage/RTLloc.png';
-import ACADloc  from './CCcss/CCimage/ACADloc.png';
-import NGEloc  from './CCcss/CCimage/NGEloc.png';
-import PEloc  from './CCcss/CCimage/PEloc.png';
-import ELEMloc  from './CCcss/CCimage/ELEMloc.png';
-import ALLIEDloc from './CCcss/CCimage/ALLIEDloc.png';
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
-function BuildingInformation() {
+function BuildingLocation() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  
   const CustomCard = ({ imgSrc, imgAlt, title, description, buttonText, link }) => {
-    const [showImage, setShowImage] = useState(false);
-  
     const cardStyle = {
-      width: '400px', 
-      height: showImage ? 'auto' : '485px', 
-    };
-  
-    const handleButtonClick = () => {
-      setShowImage(!showImage);
+      width: '400px', // Set your desired width
+      height: '485px', // Set your desired height
     };
   
     return (
@@ -68,22 +51,15 @@ function BuildingInformation() {
         </CardActionArea>
         {buttonText && link && (
           <CardActions>
-            <Button size="small" color="primary" onClick={handleButtonClick}>
-              {showImage ? "Hide Location" : buttonText}
+            <Button size="small" color="primary" href={link}>
+              {buttonText}
             </Button>
           </CardActions>
-        )}
-        {showImage && (
-          <CardActionArea>
-            <CardMedia component="img" height="auto" image={link} alt="Location Image" />
-          </CardActionArea>
         )}
       </Card>
     );
   };
-  
 
-  
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -93,10 +69,10 @@ function BuildingInformation() {
   };
 
   const handleItemClick = (item) => {
-    
+    // Logic for handling dropdown item clicks
     console.log(`Clicked on : ${item}`);
-    handleDropdownClose();
-
+    handleDropdownClose(); // Close the dropdown after clicking an item
+    // You can add further logic based on the item clicked
   };
   const handleLogin = () => {
     setUser();
@@ -131,6 +107,7 @@ function BuildingInformation() {
     navigate('/SearchBuilding');
   };
   
+
   return (
     <div >
       <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
@@ -193,8 +170,7 @@ function BuildingInformation() {
           and Architecture.
           "
           buttonText="See Location"
-          link={ACADloc}
-          
+          link="card2"
         />
        <CustomCard
           imgSrc={GLE} 
@@ -206,18 +182,18 @@ function BuildingInformation() {
           of Engineering and Architecture.
           "
           buttonText="See Location"
-          link={ALLIEDloc}
+          link="card2"
         />
        <CustomCard
           imgSrc={ELEM} 
           imgAlt="Card Image 3"
-          title="ELEMENTARY BUILDING"
+          title="EELEMENTARY BUILDING"
           description="Elementary Building Opened in 1992, the 
           building hosts the school's nursery school, kindergarten, 
           and elementary department. It also hosts a playground 
           open to the school's younger students."
           buttonText="See Location"
-          link={ELEMloc}
+          link="card2"
         />
         <CustomCard
           imgSrc={NGE} 
@@ -230,7 +206,7 @@ function BuildingInformation() {
           Gregorio L. Escario, son of the Founder and third President of CIT.
           "
           buttonText="See Location"
-          link={NGEloc}
+          link="card1"
         />
         <CustomCard
           imgSrc={GLE} 
@@ -241,7 +217,7 @@ function BuildingInformation() {
           building with lecture hall-style rooms, as well as general classrooms. 
           It was named after the university's third president Gregorio L. Escario"
           buttonText="See Location"
-          link={GLEloc}
+          link="card2"
           
         />
         <CustomCard
@@ -253,14 +229,14 @@ function BuildingInformation() {
           In 2018, it was renamed as the Don Simplicio A. Lizares Building, 
           to honor the school's first Chairman of the Board of Trustees."
           buttonText="See Location"
-          link={SALloc}
+          link="card2"
         />
       <CustomCard
           imgSrc={PE}
           imgAlt="Card Image 1"
           title="P.E AREA"
           buttonText="See Location"
-          link={PEloc}
+          link="card1"
         />
 
         <CustomCard
@@ -272,7 +248,7 @@ function BuildingInformation() {
           built in the school's N. Bacalso campus. It is 
           also known as the Main Building or the RTL Building"
           buttonText="See Location"
-          link={RTLloc}
+          link="card2"
         />
         <CustomCard
           imgSrc={GYM} 
@@ -283,9 +259,8 @@ function BuildingInformation() {
           the Don Simplicio A. Lizares Building and is where 
           events and ceremonies are held. PE classes and 
           other recreational activities also occur here."
-          
-          buttonText ="See Location"
-          link={GYMloc}
+          buttonText="See Location"
+          link="card2"
         />
     </div>
     </div>
@@ -293,4 +268,4 @@ function BuildingInformation() {
     );
 }
 
-export default BuildingInformation;
+export default BuildingLocation;
