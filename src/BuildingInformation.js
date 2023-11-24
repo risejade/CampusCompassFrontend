@@ -32,6 +32,7 @@ import NGEloc  from './CCcss/CCimage/NGEloc.png';
 import PEloc  from './CCcss/CCimage/PEloc.png';
 import ELEMloc  from './CCcss/CCimage/ELEMloc.png';
 import ALLIEDloc from './CCcss/CCimage/ALLIEDloc.png';
+import NavBar from './NavBar';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 

@@ -6,6 +6,7 @@ import { AppBar, Toolbar, Typography, Menu, MenuItem, Button } from '@mui/materi
 import './CCcss/BuildingInformation.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import 'leaflet/dist/leaflet.css';
+import NavBar from './NavBar';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
@@ -174,59 +175,31 @@ function SearchBuilding() {
   const handleBuildingInfo = () => {
     navigate('/buildinginfo');
   };
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
 
+  const handleSearchBldg = () => {
+    navigate('/SearchBuilding');
+  };
 
   return (
     <div>
-      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
-        <Toolbar variant="dense">
-          <button className='thecampuslog' onClick={handleLandingPage}>
-            <img src={campusLogo} alt="The Campus Logo" />
-          </button>
-          <div className='appbar'>
-            <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                Home
-              </Typography>
-            </div>
-            <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                About Us
-              </Typography>
-            </div>
-            <div className='services' style={{ cursor: 'pointer' }}>
-              <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
-                Services
-              </Button>
-              <Menu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleDropdownClose}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                getContentAnchorEl={null}
-              >
-                <MenuItem onClick={() => handleItemClick('Search Building')}>Search Building</MenuItem>
-                <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
-                <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
-                <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
-              </Menu>
-            </div>
+      <NavBar
+        handleHome={handleHome}
+        handleAbout={handleAbout}
+        handleDropdownClick={handleDropdownClick}
+        handleDropdownClose={handleDropdownClose}
+        handleSearchBldg={handleSearchBldg}
+        handleBuildingInfo={handleBuildingInfo}
+        handleItemClick={handleItemClick}
+        handleLandingPage={handleLandingPage}
+        user={user}
+        handleLogout={handleLogout}
+        stopPropagation={stopPropagation}
+        campusLogo={campusLogo}
+      />
 
-            <div className='logout' onClick={handleLogout} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                Log out
-              </Typography>
-            </div>
-          </div>
-        </Toolbar>
-      </AppBar>
       <div>
         <input
           type="text"
