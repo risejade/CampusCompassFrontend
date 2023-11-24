@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Avatar  } from '@mui/material';
 import './CCcss/Home.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import hrLogo from './CCcss/CCimage/hrlogo.png';
@@ -11,6 +10,7 @@ import CITLib from './CCcss/CCimage/CITLib.jpg';
 import CITCr from './CCcss/CCimage/CITcr.jpg';
 import Lounge from './CCcss/CCimage/Lounge.jpg';
 import WallFame from './CCcss/CCimage/FameWall.jpg';
+import NavBar from './NavBar';
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
 
@@ -319,6 +319,20 @@ function Home() {
           </div>
         </Toolbar>
       </AppBar>
+      <NavBar
+        handleHome={handleHome}
+        handleAbout={handleAbout}
+        handleDropdownClick={handleDropdownClick}
+        handleDropdownClose={handleDropdownClose}
+        handleSearchBldg={handleSearchBldg}
+        handleBuildingInfo={handleBuildingInfo}
+        handleItemClick={handleItemClick}
+        handleLandingPage={handleLandingPage}
+        user={user}
+        handleLogout={handleLogout}
+        stopPropagation={stopPropagation}
+        campusLogo={campusLogo}
+      />
 
       <div className="home">
         <IntroductionBox />
