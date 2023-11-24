@@ -239,6 +239,10 @@ function Home() {
     navigate('/SearchBuilding');
   };
   
+  const handleEvents = () => {
+    navigate('/Events');
+  };
+
   return (
     <div>
       <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
@@ -278,7 +282,7 @@ function Home() {
               <MenuItem onClick={handleSearchBldg}>Search Building</MenuItem>
               <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
               <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
-              <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
+              <MenuItem onClick={handleEvents}>Events</MenuItem>
             </Menu>
             <div className="profile-menu">
               {user && (

@@ -15,6 +15,7 @@ import BuildingInformation from './BuildingInformation';
 import ProfilePage from './ProfilePage';
 import SearchBuilding from './SearchBuilding';
 import NewPassword from './NewPassword';
+import Events from './Events';
 
 ReactDOM.render(
   <Router>
@@ -33,6 +34,8 @@ ReactDOM.render(
         <Route path="/user-profile" element={<ProfilePage />} />
         <Route path="/SearchBuilding" element={<SearchBuilding />} />
         <Route path="/update-password" element={<NewPassword />} />
+        <Route path="/Events" element={<Events />} />
+
       </Routes>
     </React.StrictMode>
   </Router>,

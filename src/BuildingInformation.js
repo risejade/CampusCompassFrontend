@@ -40,7 +40,6 @@ function BuildingInformation() {
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
 
-  
   const CustomCard = ({ imgSrc, imgAlt, title, description, buttonText, link }) => {
     const [showImage, setShowImage] = useState(false);
   
@@ -130,6 +129,10 @@ function BuildingInformation() {
   const handleSearchBldg = () => {
     navigate('/SearchBuilding');
   };
+
+  const handleEvents = () => {
+    navigate('/Events');
+  };
   
   return (
     <div >
@@ -170,7 +173,7 @@ function BuildingInformation() {
               <MenuItem onClick={handleSearchBldg}>Search Building</MenuItem>
               <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
               <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
-              <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
+              <MenuItem onClick={handleEvents}>Events</MenuItem>
             </Menu>
           </div>
           
