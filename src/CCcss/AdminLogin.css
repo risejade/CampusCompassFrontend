@@ -1,0 +1,78 @@
+body {
+    background-image: url('CCimage/aerial.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+}
+
+body.Login-page::after {
+    content: "";
+    position: relative; 
+    top: 15%;
+    left: 17.5%; 
+    width: 65%;
+    height: 80%;
+    background-image: url('CCimage/login.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 36px;
+    z-index: 1; 
+    animation: borderGlow 2s infinite alternate; 
+}
+
+@keyframes borderGlow {
+    0% {
+        box-shadow: 0 0 20px #4E1E22; 
+    }
+    100% {
+        box-shadow: 0 0 20px #e6b87b, 0 0 30px #fb9918; 
+    }
+}
+
+.logincont1 {
+    display: flex;
+    margin-top: 445px;
+    margin-left: 930px;
+    position: fixed;
+    z-index: 2;
+}
+.signupcont{
+    display: flex;
+    margin-top: 525px;
+    margin-left: 875px;
+    position: fixed;
+    z-index: 2;
+}
+
+.login1 {
+    width: 150px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #4E1E22;
+    color: #F6B460;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login1:hover {
+    background-color: #F6B460;
+    color: #4E1E22;
+}
+.loginText{
+    display: flex;
+    font-size: 30px;
+    font-weight: lighter;
+    margin-top: 25px;
+    margin-left: 970px;
+    position: fixed;
+    z-index: 2;
+}
+.loginatts{
+    position: fixed;
+    margin-top: 130px;
+    margin-left: 807px;
+    z-index: 2;
+}

@@ -6,9 +6,13 @@ import { FreeMode, Pagination } from "swiper/modules";
 import { RxIcon } from 'react-icons/rx';
 import { ServiceData } from "./indexevent";
 import './ActiveSlider.css';
+import { Button } from "@mui/material";
+import { useNavigate } from 'react-router-dom'; 
+
 
 
 const ActiveSlider = () => {
+    const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center flex-col h-screen bg-[#6c34af]">
       <Swiper
@@ -50,7 +54,9 @@ const ActiveSlider = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
     </div>
+
   );
 };
 

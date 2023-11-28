@@ -32,7 +32,7 @@
       backgroundImage: dance,
     },
     {
-      title: "Inkovember",
+      title: "Inknovember",
       content: "Create Media and Literacy, a 3-day art challenge celebrating Media and Information Literacy Month. Embrace the ink-only rule, unlock your artistic potential, and share your unique perspective on themes like EDUCATION, PRIVACY, and MULTIMEDIA.",
       backgroundImage: ink,
     },

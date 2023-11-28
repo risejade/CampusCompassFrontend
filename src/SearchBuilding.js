@@ -205,8 +205,8 @@ function SearchBuilding() {
         handleLogout={handleLogout}
         stopPropagation={stopPropagation}
         campusLogo={campusLogo}
-      />   
-             <div>
+      /> 
+      <div>
         <input
           type="text"
           placeholder="Enter your destination"

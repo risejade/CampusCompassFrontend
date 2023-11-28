@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavBar from './NavBar';
+import Button from '@mui/material/Button';
 import './CCcss/BuildingInformation.css'; 
 import campusLogo from './CCcss/CCimage/campus.png';
 import ActiveSlider from './Eventscomponents/ActiveSlider';
-
+import AdminLogin from './AdminLogin';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
@@ -12,7 +13,6 @@ function Events() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
-  
 
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -68,6 +68,11 @@ function Events() {
     event.stopPropagation();
   };
 
+  const handleAdminClick = () => {
+    console.log('Admin button clicked'); // Check if this log appears in the console
+    navigate('/adminlogin');  // Navigate to the '/adminlogin' route
+  };
+
   return (
     <div >
              <NavBar
@@ -86,7 +91,11 @@ function Events() {
       /> 
 
       <ActiveSlider/>
-
+ <div>
+      <Button onClick={handleAdminClick}>
+        Admin
+      </Button>
+    </div>
     </div>
     
     );
