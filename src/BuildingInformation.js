@@ -134,58 +134,30 @@ function BuildingInformation() {
   const handleEvents = () => {
     navigate('/Events');
   };
+  const stopPropagation = (event) => {
+    event.stopPropagation();
+  };
+  const handleAdmin = () => {
+    navigate('/adminlogin');
+  };
   
   return (
     <div >
-      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
-        <Toolbar variant="dense">
-          <button className='thecampuslog' onClick={handleLandingPage}>
-            <img src={campusLogo} alt="The Campus Logo" />
-          </button>
-          <div className='appbar'>
-          <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
-            <Typography variant="button">
-              Home
-            </Typography>
-          </div>
-          <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
-            <Typography variant="button">
-              About Us
-            </Typography>
-          </div>
-          <div className='services' style={{ cursor: 'pointer' }}>
-            <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
-              Services
-            </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleDropdownClose}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              getContentAnchorEl={null}
-            >
-              <MenuItem onClick={handleSearchBldg}>Search Building</MenuItem>
-              <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
-              <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
-              <MenuItem onClick={handleEvents}>Events</MenuItem>
-            </Menu>
-          </div>
-          
-            <div className='logout' onClick={handleLogout} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                Log out
-              </Typography>
-            </div>
-          </div>
-        </Toolbar>
-      </AppBar>
+        <NavBar
+            handleHome={handleHome}
+            handleAbout={handleAbout}
+            handleDropdownClick={handleDropdownClick}
+            handleDropdownClose={handleDropdownClose}
+            handleSearchBldg={handleSearchBldg}
+            handleBuildingInfo={handleBuildingInfo}
+            handleItemClick={handleItemClick}
+            handleLandingPage={handleLandingPage}
+            user={user}
+            handleLogout={handleLogout}
+            stopPropagation={stopPropagation}
+            campusLogo={campusLogo}
+            handleEventso={handleEvents}
+          /> 
 
       <div className="card-columns">
       <CustomCard 
@@ -291,6 +263,13 @@ function BuildingInformation() {
           buttonText ="See Location"
           link={GYMloc}
         />
+    </div>
+    <br></br>
+    <br></br>
+    <div className='adminInfo'>
+        <Button onClick={handleAdmin} style={{ color: 'white' }}>
+              Admin
+        </Button>
     </div>
     </div>
     
