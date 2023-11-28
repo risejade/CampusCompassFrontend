@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/LandingPage.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 import campusGearLogo from './CCcss/CCimage/campusGear.png';

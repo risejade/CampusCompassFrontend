@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Menu, MenuItem, Button } from '@mui/material';
 import './CCcss/BuildingInformation.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import 'leaflet/dist/leaflet.css';
 import NavBar from './NavBar';
+
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
@@ -192,49 +192,7 @@ function SearchBuilding() {
 
   return (
     <div>
-<<<<<<< HEAD
-      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
-        <Toolbar variant="dense">
-          <button className='thecampuslog' onClick={handleLandingPage}>
-            <img src={campusLogo} alt="The Campus Logo" />
-          </button>
-          <div className='appbar'>
-            <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                Home
-              </Typography>
-            </div>
-            <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
-              <Typography variant="button">
-                About Us
-              </Typography>
-            </div>
-            <div className='services' style={{ cursor: 'pointer' }}>
-              <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
-                Services
-              </Button>
-              <Menu
-                anchorEl={anchorEl}
-                open={Boolean(anchorEl)}
-                onClose={handleDropdownClose}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                getContentAnchorEl={null}
-              >
-                <MenuItem onClick={() => handleItemClick('Search Building')}>Search Building</MenuItem>
-                <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
-                <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
-                <MenuItem onClick={handleEvents}>Events</MenuItem>
-              </Menu>
-            </div>
-=======
-      <NavBar
+       <NavBar
         handleHome={handleHome}
         handleAbout={handleAbout}
         handleDropdownClick={handleDropdownClick}
@@ -247,10 +205,8 @@ function SearchBuilding() {
         handleLogout={handleLogout}
         stopPropagation={stopPropagation}
         campusLogo={campusLogo}
-      />
->>>>>>> ebe42ae2e6b3135af6517b018667d4841ee42925
-
-      <div>
+      />   
+             <div>
         <input
           type="text"
           placeholder="Enter your destination"
@@ -263,7 +219,6 @@ function SearchBuilding() {
           handleDestinationChange={handleDestinationChange}
         />
       </div>
-      
     </div>
   );
 }

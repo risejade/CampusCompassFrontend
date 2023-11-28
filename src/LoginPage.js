@@ -52,23 +52,20 @@ function LoginPage() {
     }
   };
 
-  const handleAbout = () => {
-    navigate('/about'); 
+  const handleRedirect = (path) => {
+    navigate(path);
   };
+  
   const handleHome = () => {
-    navigate('/home'); 
+    navigate('/home');
   };
-  const handleContact = () => {
-    navigate('/contact');
+
+  const handleAbout = () => {
+    navigate('/about');
   };
+
   const handleLandingPage = () => {
-    navigate('/landingpage');
-  };
-  const handleForgotPass = () => {
-    navigate('/forgotpass')
-  };
-  const handleSignUp = () => {
-    navigate('/signup');
+    navigate('/landing');
   };
 
   return (
@@ -136,17 +133,17 @@ function LoginPage() {
                     color: 'black', 
                     cursor: 'pointer',
                     borderBottom: '2px solid #F6B460'
-                    }} onClick={handleForgotPass}>
+                    }} onClick={() => handleRedirect('/forgotpass')}>
                         Forgot Password?</span>
             </div>
       </div>
       <div className='logincont1'>
-      <button className='login1' onClick={handleLogin} variant="outlined" >
+      <button className='login1' onClick={() => handleRedirect('/login')} variant="outlined" >
         Login
       </button>
       </div>
         <div className='signupcont'>
-            <p>Don't have an account yet? <span onClick={handleSignUp} 
+            <p>Don't have an account yet? <span onClick={() => handleRedirect('/signup')} 
             style={{ 
             marginLeft: '2px',
             borderBottom: '2px solid #F6B460', 
