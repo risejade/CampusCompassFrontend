@@ -8,8 +8,7 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  IconButton,
-  makeStyles
+  IconButton
 } from '@mui/material';
 import './CCcss/BuildingInformation.css'; 
 import campusLogo from './CCcss/CCimage/campus.png';
@@ -37,21 +36,7 @@ import NavBar from './NavBar';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
-
-const useStyles = makeStyles((theme) => ({
-    addButton: {
-      marginLeft: '1400px',
-      '&:hover': {
-        '& .MuiIconButton-label': {
-          transition: 'color 0.3s ease-in-out',
-          color: '#fb9918',
-        },
-      },
-    },
-  }));
-
 function AdminBuildingInfo() {
-  const classes = useStyles();
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -198,7 +183,7 @@ function AdminBuildingInfo() {
             handleEventso={handleEvents}
           /> 
     <br></br>
-        <div className={classes.addButton}>
+        <div className='add-button'>
             <IconButton onClick={handleAdd} style={{ color: '#4E1E22', marginLeft:'1400px'}}>
             <AddCircleOutlineIcon fontSize="large"/>
             </IconButton>
