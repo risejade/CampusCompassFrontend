@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Menu,
-  MenuItem,
-  Button,
-  Avatar
-} from '@mui/material';
 import './CCcss/Home.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import hrLogo from './CCcss/CCimage/hrlogo.png';

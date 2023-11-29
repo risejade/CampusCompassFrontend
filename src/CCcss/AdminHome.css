@@ -1,0 +1,9 @@
+body {
+    background-image: url('CCimage/aerial.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
+    padding-top: 20px;
+}
+
+.customback{}
