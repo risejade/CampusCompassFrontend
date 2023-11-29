@@ -23,7 +23,7 @@ function AdminLogin() {
   }, []);
 
   const handleLogin = () => {
-    navigate('/login'); 
+    navigate('/adminaddevent'); 
   };
   const handleAbout = () => {
     navigate('/about'); 
@@ -55,7 +55,7 @@ function AdminLogin() {
       />
       <div className='loginText'>
         <h2 className='logintextFormat'>
-          Login
+        Admin Login
         </h2>
       </div>
       <div className='loginatts'>
