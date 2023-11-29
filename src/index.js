@@ -20,6 +20,7 @@ import AdminLogin from './AdminLogin';
 import AdminBuildingInfo from './AdminBuildingInfo';
 import AdminAddEvent from './AdminAddEvent';
 import AdminHome from './AdminHomePage';
+import AdminBIEdit from './AdminBIEdit';
 
 ReactDOM.render(
   <Router>
@@ -43,6 +44,7 @@ ReactDOM.render(
         <Route path="/admin-building-info" element={<AdminBuildingInfo />} />
         <Route path="/adminaddevent" element={<AdminAddEvent />} />
         <Route path="/admin-home" element={<AdminHome />} />
+        <Route path="/admin-building-info-add" element={<AdminBIEdit />} />
       </Routes>
     </React.StrictMode>
   </Router>,

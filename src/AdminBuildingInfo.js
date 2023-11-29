@@ -159,8 +159,7 @@ function AdminBuildingInfo() {
   };
 
   const handleAdd = () => {
-    // Functionality to handle delete action
-    // You can implement your logic here
+    navigate('/admin-building-info-add');
     console.log('Add button clicked');
   };
 
