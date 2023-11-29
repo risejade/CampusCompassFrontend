@@ -86,7 +86,54 @@ function AdminAddEvent() {
                 );
               })}
           </div>
+          <h3
+              style={{
+                  color:'white',
+                  marginLeft:'25px',
+                  fontSize:'20px',
+                  letterSpacing:'2px',
+                  textShadow: '0 0 5px#4E1E22, 0 0 5px #4E1E22, 0 0 5px #4E1E22'
+              }}>
+                  Event Title:
+              </h3>
+          <input
+                type="text"
+                placeholder="Enter your title here"
+                style={{ 
+                    fontSize:'17px', 
+                    color:'#4E1E22' ,
+                    marginLeft:'25px',
+                    width: '350px', 
+                    height: '30px', 
+                    border: 'none',
+                    backgroundColor: '#F6B460', 
+                    borderRadius: '10px',
+                    padding: '10px' }}/>
+                    <br></br>
+                  <h3 style={{
+                      color:'white',
+                      fontSize:'20px',
+                      marginLeft:'25px',
+                      letterSpacing:'2px',
+                      textShadow: '0 0 5px#4E1E22, 0 0 5px #4E1E22, 0 0 5px #4E1E22'
+                  }}>
+                      Event Description:
+                  </h3>
+                  <input
+                          type="text"
+                          placeholder="Enter your description here"
+                          style={{ 
+                              fontSize:'17px', 
+                              color:'#4E1E22' ,
+                              marginLeft:'25px',
+                              width: '350px', 
+                              height: '30px', 
+                              border: 'none',
+                              backgroundColor: '#F6B460', 
+                              borderRadius: '10px',
+                              padding: '10px' }}/>
         </section>
+        
       );
 }
   const handleDropdownClick = (event) => {
