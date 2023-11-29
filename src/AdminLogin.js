@@ -53,12 +53,12 @@ function AdminLogin() {
         user={user}
         campusLogo={campusLogo}
       />
-      <div className='loginText'>
-        <h2 className='logintextFormat'>
-          Login
+      <div className='AdminText'>
+        <h2 className='AdmintextFormat'>
+          Admin Credentials
         </h2>
       </div>
-      <div className='loginatts'>
+      <div className='Adminatts'>
         <h3>
             Username
         </h3>
@@ -118,6 +118,8 @@ function AdminLogin() {
             color: 'black', 
             cursor: 'pointer' 
             }} >Sign Up</span></p>
+        </div>
+        <div className='Adminimageback'>
         </div>
     </div>
   );
