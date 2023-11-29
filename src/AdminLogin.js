@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import './CCcss/LoginPage.css';
+import { AppBar, Toolbar, Typography,} from '@mui/material';
+import './CCcss/AdminLogin.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 import axios from 'axios';
-import loginImage from './CCcss/CCimage/login.png'
 import NavBar from './NavBar';
 
-function LoginPage() {
+function AdminLogin() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState('');
@@ -15,57 +15,33 @@ function LoginPage() {
   const [loginError, setLoginError] = useState('');
   
   useEffect(() => {
-    document.body.classList.add('Login-page1');
+    document.body.classList.add('Login-page');
 
     return () => {
-      document.body.classList.remove('Login-page1');
+      document.body.classList.remove('Login-page');
     };
   }, []);
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-  
-    try {
-      const response = await axios.post('http://localhost:8080/usercampus/getAllUsercampus', {
-        username,
-        password,
-      });
-  
-      // Assuming the API response contains a success status or a token upon successful login
-      const { success, token } = response.data;
-  
-      if (success) {
-        // Handle successful login, e.g., set user session with token, redirect, etc.
-        console.log('Login successful!');
-        // You can set the token in session storage or cookies for authentication
-  
-        navigate('/home'); // Redirect to home page after successful login
-      } else {
-        // Handle login failure
-        console.error('Login failed:', response.data.error);
-        setLoginError('Invalid username or password');
-      }
-    } catch (error) {
-      // Handle network errors or other exceptions
-      console.error('Login failed:', error);
-      setLoginError('An error occurred while logging in');
-    }
+  const handleLogin = () => {
+    navigate('/login'); 
   };
-
-  const handleRedirect = (path) => {
-    navigate(path);
-  };
-  
-  const handleHome = () => {
-    navigate('/home');
-  };
-
   const handleAbout = () => {
-    navigate('/about');
+    navigate('/about'); 
   };
-
+  const handleHome = () => {
+    navigate('/home'); 
+  };
+  const handleContact = () => {
+    navigate('/contact');
+  };
   const handleLandingPage = () => {
-    navigate('/landing');
+    navigate('/landingpage');
+  };
+  const handleForgotPass = () => {
+    navigate('/forgotpass')
+  };
+  const handleSignUp = () => {
+    navigate('/signup');
   };
 
   return (
@@ -77,12 +53,12 @@ function LoginPage() {
         user={user}
         campusLogo={campusLogo}
       />
-      <div className='loginText'>
-        <h2 className='logintextFormat'>
-          Login
+      <div className='AdminText'>
+        <h2 className='AdmintextFormat'>
+          Admin Credentials
         </h2>
       </div>
-      <div className='loginatts'>
+      <div className='Adminatts'>
         <h3>
             Username
         </h3>
@@ -127,23 +103,15 @@ function LoginPage() {
                 <label htmlFor="rememberPassword" 
                 style={{ color:'black',}}>
                     Remember Password</label>
-                <span 
-                style={{ 
-                    marginLeft: '75px', 
-                    color: 'black', 
-                    cursor: 'pointer',
-                    borderBottom: '2px solid #F6B460'
-                    }} onClick={() => handleRedirect('/forgotpass')}>
-                        Forgot Password?</span>
             </div>
       </div>
       <div className='logincont1'>
-      <button className='login1' onClick={() => handleRedirect('/login')} variant="outlined" >
+      <button className='login1' onClick={handleLogin} variant="outlined" >
         Login
       </button>
       </div>
         <div className='signupcont'>
-            <p>Don't have an account yet? <span onClick={() => handleRedirect('/signup')} 
+            <p>Don't have an account yet? <span onClick={handleSignUp} 
             style={{ 
             marginLeft: '2px',
             borderBottom: '2px solid #F6B460', 
@@ -151,10 +119,10 @@ function LoginPage() {
             cursor: 'pointer' 
             }} >Sign Up</span></p>
         </div>
-        <div className='imageback'>
+        <div className='Adminimageback'>
         </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default AdminLogin;

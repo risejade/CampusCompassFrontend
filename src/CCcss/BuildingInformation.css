@@ -30,4 +30,21 @@
   margin-top: 20px;
   gap: 30px; /* Adjust the gap between cards */
 }
+.adminInfo{
+  text-align: center;
+  margin-left: 700px;
+  width: 100px;
+  height: 40px;
+  background-color: #F6B460;
+  color: #4E1E22;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+.adminInfo:hover {
+  background-color: #4E1E22;
+  color: #F6B460;
+}

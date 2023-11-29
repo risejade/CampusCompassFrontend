@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Avatar  } from '@mui/material';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Menu,
+  MenuItem,
+  Button,
+  Avatar
+} from '@mui/material';
 import './CCcss/Home.css'; // Assuming you have a separate CSS file for styling
 import campusLogo from './CCcss/CCimage/campus.png';
 import hrLogo from './CCcss/CCimage/hrlogo.png';
@@ -11,6 +19,8 @@ import CITLib from './CCcss/CCimage/CITLib.jpg';
 import CITCr from './CCcss/CCimage/CITcr.jpg';
 import Lounge from './CCcss/CCimage/Lounge.jpg';
 import WallFame from './CCcss/CCimage/FameWall.jpg';
+import NavBar from './NavBar';
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
 
@@ -239,82 +249,26 @@ function Home() {
     navigate('/SearchBuilding');
   };
   
+  const handleEvents = () => {
+    navigate('/Events');
+  };
+
   return (
     <div>
-      <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
-        <Toolbar variant="dense">
-          <button className='thecampuslog' onClick={handleLandingPage}>
-            <img src={campusLogo} alt="The Campus Logo" />
-          </button>
-          <div className='appbar'>
-          <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
-            <Typography variant="button">
-              Home
-            </Typography>
-          </div>
-          <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
-            <Typography variant="button">
-              About Us
-            </Typography>
-          </div>
-          <div className='services' style={{ cursor: 'pointer' }} onClick={stopPropagation}>
-            <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
-              Services
-            </Button>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleDropdownClose}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              getContentAnchorEl={null}
-            >
-              <MenuItem onClick={handleSearchBldg}>Search Building</MenuItem>
-              <MenuItem onClick={handleBuildingInfo}>Building Information</MenuItem>
-              <MenuItem onClick={() => handleItemClick('Maintenance Report')}>Maintenance Report</MenuItem>
-              <MenuItem onClick={() => handleItemClick('Events')}>Events</MenuItem>
-            </Menu>
-            <div className="profile-menu">
-              {user && (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <Avatar
-                    alt="User Profile"
-                    src="../CCcss/CCimage/rise.png" // Replace with user's profile image URL or data
-                    onClick={handleDropdownClick}
-                    style={{ cursor: 'pointer', marginRight: '10px' }}
-                  />
-                  <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleDropdownClose}
-                    getContentAnchorEl={null}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'right',
-                    }}
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                  >
-                    {/* Your dropdown menu items */}
-                    <MenuItem onClick={() => handleItemClick('Edit Profile')}>Edit Profile</MenuItem>
-                    <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                    {/* Other dropdown items */}
-                  </Menu>
-                </div>
-              )}
-              </div>
-            </div>
-          </div>
-        </Toolbar>
-      </AppBar>
+      <NavBar
+        handleHome={handleHome}
+        handleAbout={handleAbout}
+        handleDropdownClick={handleDropdownClick}
+        handleDropdownClose={handleDropdownClose}
+        handleSearchBldg={handleSearchBldg}
+        handleBuildingInfo={handleBuildingInfo}
+        handleItemClick={handleItemClick}
+        handleLandingPage={handleLandingPage}
+        user={user}
+        handleLogout={handleLogout}
+        stopPropagation={stopPropagation}
+        campusLogo={campusLogo}
+      />
 
       <div className="home">
         <IntroductionBox />

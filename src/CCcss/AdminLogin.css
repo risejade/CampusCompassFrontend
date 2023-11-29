@@ -5,7 +5,7 @@ body {
     background-repeat: no-repeat; 
 }
 
-body.Login-page1::after {
+body.Login-page::after {
     content: "";
     position: relative; 
     top: 15%;
@@ -61,22 +61,23 @@ body.Login-page1::after {
     background-color: #F6B460;
     color: #4E1E22;
 }
-.loginText{
+.AdminText{
     display: flex;
     font-size: 30px;
     font-weight: lighter;
     margin-top: 25px;
-    margin-left: 940px;
+    margin-left: 800px;
     position: fixed;
     z-index: 2;
 }
-.loginatts{
+.Adminatts{
     position: fixed;
     margin-top: 130px;
     margin-left: 807px;
     z-index: 2;
 }
-.imageback::after {
+
+.Adminimageback::after {
     content: "";
     position: absolute;
     top: 15%;
@@ -100,4 +101,3 @@ body.Login-page1::after {
       box-shadow: 0 0 20px #e6b87b, 0 0 30px #fb9918;
     }
   }
-  

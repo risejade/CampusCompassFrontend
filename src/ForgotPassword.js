@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/ForgotPassword.css';
 import campusLogo from './CCcss/CCimage/campus.png';
+import NavBar from './NavBar';
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -48,30 +49,13 @@ function ForgotPassword() {
 
   return (
     <div>
-      <AppBar position="static" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
-        <Toolbar variant="dense">
-        <button className='thecampuslog' onClick={handleLandingPage}>
-          <img src={campusLogo} alt="The Campus Logo" />
-        </button>
-        <div className='appbar'>
-        <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
-          <Typography variant="button">
-            Home
-          </Typography>
-        </div>
-        <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
-          <Typography variant="button">
-            About Us
-          </Typography>
-        </div>
-        <div className='services' onClick={handleContact} style={{ cursor: 'pointer' }}>
-          <Typography variant="button">
-           Services
-          </Typography>
-        </div>
-        </div>
-        </Toolbar>
-      </AppBar>
+      <NavBar
+            handleHome={handleHome}
+            handleAbout={handleAbout}
+            handleLandingPage={handleLandingPage}
+            user={user}
+            campusLogo={campusLogo}
+            />
       <div className='Forgotpass'>
         <h2 className='forgottextFormat'>
           Forgot Password
