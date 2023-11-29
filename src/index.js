@@ -18,6 +18,7 @@ import NewPassword from './NewPassword';
 import Events from './Events';
 import AdminLogin from './AdminLogin';
 import AdminBuildingInfo from './AdminBuildingInfo';
+import AdminAddEvent from './AdminAddEvent';
 
 ReactDOM.render(
   <Router>
@@ -39,6 +40,7 @@ ReactDOM.render(
         <Route path="/Events" element={<Events />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/admin-building-info" element={<AdminBuildingInfo />} />
+        <Route path="/adminaddevent" element={<AdminAddEvent />} />
       </Routes>
     </React.StrictMode>
   </Router>,

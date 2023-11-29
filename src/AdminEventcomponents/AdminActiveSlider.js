@@ -3,14 +3,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import { FreeMode, Pagination } from "swiper/modules";
-import { ServiceData } from "./indexevent";
-import './ActiveSlider.css';
+import { AdminServiceData } from './AdminIndexevent';
+import './AdminActiveSlider.css';
 import { Button } from "@mui/material";
 import { useNavigate } from 'react-router-dom'; 
 
 
 
-const ActiveSlider = () => {
+const AdminActiveSlider = () => {
     const navigate = useNavigate();
   return (
     <div className="flex items-center justify-center flex-col h-screen bg-[#6c34af]">
@@ -32,7 +32,7 @@ const ActiveSlider = () => {
         modules={[FreeMode, Pagination]}
         className="max-w-[90%] lg:max-w-[80%]"
       >
-        {ServiceData.map((item) => (
+        {AdminServiceData.map((item) => (
           <SwiperSlide key={item.title} className="swiper-slide-container">
             <div className="active-slider-container relative shadow-lg overflow-hidden cursor-pointer">
               <div className="slide-image relative h-[100%] lg:h-[70%] xl:h-[50%]">
@@ -59,4 +59,4 @@ const ActiveSlider = () => {
   );
 };
 
-export default ActiveSlider;
+export default AdminActiveSlider;

@@ -55,7 +55,7 @@ function AdminLogin() {
       />
       <div className='AdminText'>
         <h2 className='AdmintextFormat'>
-          Login
+          ADMIN ACCESS
         </h2>
       </div>
       <div className='Adminatts'>
