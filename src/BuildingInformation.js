@@ -52,6 +52,17 @@ function BuildingInformation() {
     const handleButtonClick = () => {
       setShowImage(!showImage);
     };
+    const handleEdit = () => {
+      // Functionality to handle edit action
+      // You can implement your logic here
+      console.log('Edit button clicked');
+    };
+  
+    const handleDelete = () => {
+      // Functionality to handle delete action
+      // You can implement your logic here
+      console.log('Delete button clicked');
+    };
   
     return (
       <Card style={cardStyle}>
@@ -140,7 +151,8 @@ function BuildingInformation() {
   const handleAdmin = () => {
     navigate('/adminlogin');
   };
-  
+
+
   return (
     <div >
         <NavBar

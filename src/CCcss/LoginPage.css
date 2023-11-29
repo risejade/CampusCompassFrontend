@@ -5,7 +5,7 @@ body {
     background-repeat: no-repeat; 
 }
 
-body.Login-page::after {
+body.Login-page1::after {
     content: "";
     position: relative; 
     top: 15%;
@@ -66,7 +66,7 @@ body.Login-page::after {
     font-size: 30px;
     font-weight: lighter;
     margin-top: 25px;
-    margin-left: 970px;
+    margin-left: 940px;
     position: fixed;
     z-index: 2;
 }
@@ -76,3 +76,28 @@ body.Login-page::after {
     margin-left: 807px;
     z-index: 2;
 }
+.imageback::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 17.5%; 
+    width: 65%;
+    height: 80%;
+    border-radius: 36px;
+    z-index: -1;
+    animation: borderGlow 2s infinite alternate;
+    background-image: url('CCimage/login.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  @keyframes borderGlow {
+    0% {
+      box-shadow: 0 0 20px #4E1E22;
+    }
+    100% {
+      box-shadow: 0 0 20px #e6b87b, 0 0 30px #fb9918;
+    }
+  }
+  

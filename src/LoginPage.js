@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/LoginPage.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 import axios from 'axios';
+import loginImage from './CCcss/CCimage/login.png'
 import NavBar from './NavBar';
 
 function LoginPage() {
@@ -15,10 +15,10 @@ function LoginPage() {
   const [loginError, setLoginError] = useState('');
   
   useEffect(() => {
-    document.body.classList.add('Login-page');
+    document.body.classList.add('Login-page1');
 
     return () => {
-      document.body.classList.remove('Login-page');
+      document.body.classList.remove('Login-page1');
     };
   }, []);
 
@@ -150,6 +150,8 @@ function LoginPage() {
             color: 'black', 
             cursor: 'pointer' 
             }} >Sign Up</span></p>
+        </div>
+        <div className='imageback'>
         </div>
     </div>
   );

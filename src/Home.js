@@ -172,7 +172,7 @@ function Footer() {
         <div className="contact-info">
           <h1 className="contact-text">Contact us</h1>
           <address>
-            <p>
+            <p className='contact-desc'>
               <span role="img" aria-label="Location">&#x1F4CD;</span> N. Bacalso Avenue, Cebu City, Philippines <br />
               <span role="img" aria-label="Email">&#x1F4E7;</span> Email: campuscompass@gmail.com <br />
               <span role="img" aria-label="Phone">&#x260E;</span> Phone: +63 9562541563

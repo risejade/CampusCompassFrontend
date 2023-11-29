@@ -537,7 +537,7 @@ body {
 .links {
   font-family: 'Baloo Chettan', sans-serif;
   font-size: 50px;
-  margin-top: -90px;
+  margin-top: -30px;
   margin-bottom: 20px;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
@@ -559,4 +559,8 @@ body {
     cursor: pointer;
     color: #a81401;
   }
+}
+
+.contact-desc {
+  font-family: 'Poppins Medium', sans-serif;
 }
