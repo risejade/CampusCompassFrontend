@@ -62,7 +62,7 @@ function AdminLogin() {
         <h3>
             Username
         </h3>
-        <div className='user'>
+        <div className='usera'>
         <input
             type="text"
             placeholder="Enter your username"
@@ -81,7 +81,7 @@ function AdminLogin() {
         <h3>
             Password
         </h3>
-        <div className='pass'>
+        <div className='passa'>
         <input
             type="password"
             placeholder="Enter your password"
@@ -98,19 +98,19 @@ function AdminLogin() {
                 padding: '10px' 
                 }}/>
             </div>
-            <div className='rempass' style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
+            <div className='rempassa' style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
                 <input type="checkbox" id="rememberPassword" style={{ marginRight: '5px', cursor: 'pointer' }} />
                 <label htmlFor="rememberPassword" 
                 style={{ color:'black',}}>
                     Remember Password</label>
             </div>
       </div>
-      <div className='logincont1'>
-      <button className='login1' onClick={handleLogin} variant="outlined" >
+      <div className='logincont11'>
+      <button className='login11' onClick={handleLogin} variant="outlined" >
         Login
       </button>
       </div>
-        <div className='signupcont'>
+        <div className='signupcont1'>
             <p>Don't have an account yet? <span onClick={handleSignUp} 
             style={{ 
             marginLeft: '2px',

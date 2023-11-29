@@ -1,20 +1,20 @@
-.swiper-slide-container {
+.swiper-slide-containers {
     margin-top: 20px; 
   }
   
- .active-slider-container {
+ .active-slider-containers {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
     width: 400px;
   }
   
-  .slide-image {
+  .slide-images {
     position: relative;
     height: 400px;
   }
   
-  .overlay {
+  .overlays {
     position: absolute;
     inset: 0;
     background-color: black;

@@ -36,7 +36,7 @@ function AdminAddEvent() {
     }
     return (
         <section>
-          <label>
+          <label classname="Lebel">
             + Add Images
             <br />
             <span>up to 10 images</span>
@@ -72,7 +72,7 @@ function AdminAddEvent() {
               </button>
             ))}
     
-          <div className="images">
+          <div className="imagesadmin">
             {selectedImages &&
               selectedImages.map((image, index) => {
                 return (

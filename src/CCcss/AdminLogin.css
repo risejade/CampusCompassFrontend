@@ -30,14 +30,14 @@ body.Login-page::after {
     }
 }
 
-.logincont1 {
+.logincont11 {
     display: flex;
     margin-top: 445px;
     margin-left: 930px;
     position: fixed;
     z-index: 2;
 }
-.signupcont{
+.signupcont1{
     display: flex;
     margin-top: 525px;
     margin-left: 875px;
@@ -45,7 +45,7 @@ body.Login-page::after {
     z-index: 2;
 }
 
-.login1 {
+.login11 {
     width: 150px;
     height: 40px;
     border-radius: 15px;
@@ -57,7 +57,7 @@ body.Login-page::after {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.login1:hover {
+.login11:hover {
     background-color: #F6B460;
     color: #4E1E22;
 }

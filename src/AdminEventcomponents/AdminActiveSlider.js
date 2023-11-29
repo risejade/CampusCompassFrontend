@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 const AdminActiveSlider = () => {
     const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center flex-col h-screen bg-[#6c34af]">
+    <div className="flex items-centers justify-center flex-col h-screen bg-[#6c34af]">
       <Swiper
         breakpoints={{
           340: {
@@ -33,16 +33,16 @@ const AdminActiveSlider = () => {
         className="max-w-[90%] lg:max-w-[80%]"
       >
         {AdminServiceData.map((item) => (
-          <SwiperSlide key={item.title} className="swiper-slide-container">
-            <div className="active-slider-container relative shadow-lg overflow-hidden cursor-pointer">
-              <div className="slide-image relative h-[100%] lg:h-[70%] xl:h-[50%]">
+          <SwiperSlide key={item.title} className="swiper-slide-containers">
+            <div className="active-slider-containers relative shadow-lg overflow-hidden cursor-pointer">
+              <div className="slide-images relative h-[100%] lg:h-[70%] xl:h-[50%]">
                 <img
                   className="absolute inset-0 object-cover w-full h-full"
                   src={item.backgroundImage}
                   alt={item.title}
                 />
               </div>
-              <div className="overlay absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
+              <div className="overlays absolute inset-0 bg-black opacity-10 group-hover:opacity-50" />
               <div className="content-container relative flex flex-col gap-3 p-4 rounded-md bg-white">
                 <div className="icon-container text-blue-600 w-8 h-8 lg:w-6 lg:h-6">{item.icon}</div>
                 <h1 className="title text-xl lg:text-2xl">{item.title}</h1>
