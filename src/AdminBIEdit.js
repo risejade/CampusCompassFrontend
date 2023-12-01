@@ -9,15 +9,66 @@ function AdminBIEdit() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [anchorEl, setAnchorEl] = useState(null);
-  
+    const [selectedImage, setSelectedImage] = useState(null); // State for the selected image
+    const [buildingName, setBuildingName] = useState('');
+    const [buildingInfo, setBuildingInfo] = useState('');
     
+    const handleImageUpload = (event) => {
+      const file = event.target.files[0]; // Assuming a single file selection
+      if (file) {
+          const imageURL = URL.createObjectURL(file);
+          setSelectedImage(imageURL);
+      } else {
+          // If no file is selected (e.g., on cancel), reset the selected image state
+          setSelectedImage(null);
+      }
+  };
+
+    const handleCancel = () => {
+      // Resetting the selected image state to null
+      setSelectedImage(null);
+
+      // Resetting other input fields if needed
+      setBuildingName('');
+      setBuildingInfo('');
+      // Additional logic to reset other input fields as necessary
+  };
+
     const gradientBackground = {
         padding: '20px',
         background: 'linear-gradient(45deg, #4E1E2F -10%, #e6b87b 60%, #fb9918 140%)',
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.1)',
-        width: '1440px', // Set the width of the Paper
-        height: '565px', // Set the height of the Paper
-      };
+        width: '70%', // Adjusted the width to fit the container
+        height: 'auto', // Adjusted to fit content
+        margin: '0 auto', // Center the container
+    };
+
+    const inputStyles = {
+        fontSize: '17px',
+        color: '#4E1E22',
+        marginLeft: '25px',
+        width: '300px',
+        height: '30px',
+        border: 'none',
+        backgroundColor: '#F6B460',
+        borderRadius: '10px',
+        padding: '10px',
+    };
+
+    const imagePreviewStyles = {
+      maxWidth: '100%',
+      maxHeight: '200px',
+      top: '350px', // Adjust the distance from the top of the viewport
+      left: '900px', // Adjust the distance from the left of the viewport
+      zIndex: '3', // Set the stacking order if needed
+      position: 'fixed', // Fix the position of the image
+      border: '2px solid #4E1E22', // Add a border with a specific color
+    };
+
+    const buttonStyles = {
+        marginLeft: '25px',
+        color: 'white',
+    };
 
     const handleDropdownClick = (event) => {
       setAnchorEl(event.currentTarget);
@@ -76,8 +127,9 @@ function AdminBIEdit() {
     const handleRedirect = (path) => {
         navigate(path);
       };
-  return (
-    <div>
+
+    return (
+        <div>
         <NavBar
         handleHome={handleHome}
         handleAbout={handleAbout}
@@ -93,7 +145,7 @@ function AdminBIEdit() {
         campusLogo={campusLogo}
       />
         <br></br>
-    <Paper style={gradientBackground}>
+    <Paper style={{...gradientBackground, borderRadius:'40px'}}>
     <h1 style={{
         textAlign:'center',
         color:'white',
@@ -118,6 +170,8 @@ function AdminBIEdit() {
     <input
             type="text"
             placeholder="Enter your building name"
+            value={buildingName}
+            onChange={(e) => setBuildingName(e.target.value)}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -128,8 +182,6 @@ function AdminBIEdit() {
                 backgroundColor: '#F6B460', 
                 borderRadius: '10px',
                 padding: '10px' }}/>
-                <br></br>
-                <br></br>
                 <br></br>
     <h3 style={{
          color:'white',
@@ -143,6 +195,8 @@ function AdminBIEdit() {
     <input
             type="text"
             placeholder="Enter your building information"
+            value={buildingInfo}
+            onChange={(e) => setBuildingInfo(e.target.value)}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -154,21 +208,40 @@ function AdminBIEdit() {
                 borderRadius: '10px',
                 padding: '10px' }}/>
                 <br></br>
+                <h3
+                    style={{
+                        color: 'white',
+                        marginLeft: '25px',
+                        fontSize: '20px',
+                        letterSpacing: '2px',
+                        textShadow: '0 0 5px #4E1E22, 0 0 5px #4E1E22, 0 0 5px #4E1E22',
+                    }}>
+                    Building Image:
+                </h3>
+                <input
+                    type="file"
+                    onChange={handleImageUpload}
+                    accept="image/png, image/jpeg, image/webp"
+                    style={inputStyles}
+                />
+                <br />
+                {selectedImage && (
+                    <div>
+                        <img src={selectedImage} alt="Selected" style={imagePreviewStyles} />
+                    </div>
+                )}
+                <br />
+                <Button variant='outlined' style={buttonStyles}>
+                    Update
+                </Button>
+                <Button variant='outlined' style={{ ...buttonStyles, marginLeft: '10px' }} onClick={handleCancel}>
+                    Reset
+                </Button>
                 <br></br>
                 <br></br>
-                <br></br>
-         <Button variant='outlined'
-         style={{
-            marginLeft:'25px',
-            color:'white' 
-         }}
-         >
-            Update
-            </Button>       
-        </Paper>
-      </div>
-
-  );
+            </Paper>
+        </div>
+    );
 }
 
 export default AdminBIEdit;
