@@ -35,57 +35,53 @@ function AdminAddEvent() {
       URL.revokeObjectURL(image);
     }
     return (
-        <section>
-          <label classname="Lebel">
-            + Add Images
-            <br />
-            <span>up to 10 images</span>
-            <input
-              type="file"
-              name="images"
-              onChange={onSelectFile}
-              multiple
-              accept="image/png , image/jpeg, image/webp"
-            />
-          </label>
+      <section>
+        <label className="file-label">
+          + Add Images
           <br />
-    
-          <input type="file" multiple />
-    
-          {selectedImages.length > 0 &&
-            (selectedImages.length > 10 ? (
-              <p className="error">
-                You can't upload more than 10 images! <br />
-                <span>
-                  please delete <b> {selectedImages.length - 10} </b> of them{" "}
-                </span>
-              </p>
-            ) : (
-              <button
-                className="upload-btn"
-                onClick={() => {
-                  console.log(selectedImages);
-                }}
-              >
-                UPLOAD {selectedImages.length} IMAGE
-                {selectedImages.length === 1 ? "" : "S"}
-              </button>
-            ))}
-    
-          <div className="imagesadmin">
-            {selectedImages &&
-              selectedImages.map((image, index) => {
-                return (
-                  <div key={image} className="image">
-                    <img src={image} height="200" alt="upload" />
-                    <button onClick={() => deleteHandler(image)}>
-                      delete image
-                    </button>
-                    <p>{index + 1}</p>
-                  </div>
-                );
-              })}
-          </div>
+          <span>up to 10 images</span>
+          <input
+            className="file-input"
+            type="file"
+            name="images"
+            onChange={onSelectFile}
+            multiple
+            accept="image/png , image/jpeg, image/webp"
+          />
+        </label>
+        {selectedImages.length > 0 &&
+          (selectedImages.length > 10 ? (
+            <p className="error">
+              You can't upload more than 10 images! <br />
+              <span>
+                please delete <b> {selectedImages.length - 10} </b> of them{" "}
+              </span>
+            </p>
+          ) : (
+            <button
+              className="upload-btn"
+              onClick={() => {
+                console.log(selectedImages);
+              }}
+            >
+              UPLOAD {selectedImages.length} IMAGE
+              {selectedImages.length === 1 ? "" : "S"}
+            </button>
+          ))}
+        <div className="imagesadmin">
+          {selectedImages &&
+            selectedImages.map((image, index) => {
+              return (
+                <div key={image} className="image">
+                  <img src={image} height="200" alt="upload" />
+                  <button onClick={() => deleteHandler(image)}>
+                    delete image
+                  </button>
+                  <p>{index + 1}</p>
+                </div>
+              );
+            })}
+        </div>
           <h3
               style={{
                   color:'white',
