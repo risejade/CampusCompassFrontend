@@ -276,13 +276,6 @@ function BuildingInformation() {
           link={GYMloc}
         />
     </div>
-    <br></br>
-    <br></br>
-    <div className='adminInfo'>
-        <Button onClick={handleAdmin} style={{ color: 'white' }}>
-              Admin
-        </Button>
-    </div>
     </div>
     
     );

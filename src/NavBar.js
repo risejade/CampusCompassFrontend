@@ -69,6 +69,7 @@ function NavBar(props) {
               <MenuItem onClick={() => handleRedirect('/buildinginfo')}>Building Information</MenuItem>
               <MenuItem onClick={() => handleRedirect('/buildinginfo')}>Maintenance Report</MenuItem>
               <MenuItem onClick={() => handleRedirect('/Events')}>Events</MenuItem>
+              <MenuItem onClick={() => handleRedirect('/adminlogin')}>Admin</MenuItem>
             </Menu>
             <div className="profile-menu">
               {user && (

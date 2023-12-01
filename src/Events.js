@@ -91,11 +91,6 @@ function Events() {
       /> 
 
       <ActiveSlider/>
- <div>
-      <Button onClick={handleAdminClick}>
-        Admin
-      </Button>
-    </div>
     </div>
     
     );
