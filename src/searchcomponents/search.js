@@ -2,9 +2,17 @@ import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const MapContainer = () => {
+
+  const wrapperStyles = {
+    paddingTop: '20px', // Add space above the image (adjust the value as needed)
+    textAlign: 'center'
+  };
+
   const mapStyles = {
-    height: '100vh',
-    width: '100%',
+    height: '80vh',
+    width: '80%',
+    margin: 'auto', // Center the image horizontally
+    display: 'block' // Make the image a block element
   };
 
   const defaultCenter = {
@@ -13,6 +21,7 @@ const MapContainer = () => {
   };
 
   return (
+    <div style={wrapperStyles}>
     <LoadScript googleMapsApiKey="AIzaSyD2tA9sn3IcXi_t_8qBbbIyrkh1x0DpT4s"    >
       <GoogleMap
         mapContainerStyle={mapStyles}
@@ -20,6 +29,7 @@ const MapContainer = () => {
         center={defaultCenter}
       />
     </LoadScript>
+    </div>
   );
 };
 
