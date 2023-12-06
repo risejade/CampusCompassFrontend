@@ -88,6 +88,7 @@ function SearchBuilding() {
         campusLogo={campusLogo}
       />
       <MapContainer/>
+      
     </div>
     
   );
