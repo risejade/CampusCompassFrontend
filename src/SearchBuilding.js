@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './CCcss/SearchBuilding.css'; 
 import campusLogo from './CCcss/CCimage/campus.png';
 import NavBar from './NavBar';
-import Search from './searchcomponents/search';
-import { ChakraProvider, theme } from '@chakra-ui/react'
+import MapContainer from './searchcomponents/search';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
@@ -74,7 +73,6 @@ function SearchBuilding() {
   return (
     
     <div>
-    <ChakraProvider theme={theme}>
        <NavBar
         handleHome={handleHome}
         handleAbout={handleAbout}
@@ -89,8 +87,7 @@ function SearchBuilding() {
         stopPropagation={stopPropagation}
         campusLogo={campusLogo}
       />
-      <Search/>
-      </ChakraProvider>
+      <MapContainer/>
     </div>
     
   );
