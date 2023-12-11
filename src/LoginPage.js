@@ -13,7 +13,13 @@ function LoginPage() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
-  
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+
+  const [successMessage, setSuccessMessage] = useState('');
+
   useEffect(() => {
     document.body.classList.add('Login-page1');
 
@@ -26,27 +32,20 @@ function LoginPage() {
     e.preventDefault();
   
     try {
-      const response = await axios.post('http://localhost:8080/usercampus/getAllUsercampus', {
-        username,
-        password,
+      const response = await axios.post('http://localhost:8080/usercampus/login', {
+        username: formData.username,
+        password: formData.password,
       });
   
-      // Assuming the API response contains a success status or a token upon successful login
-      const { success, token } = response.data;
-  
-      if (success) {
-        // Handle successful login, e.g., set user session with token, redirect, etc.
+      console.log('Response:', response); // Logging the response data
+      if (response.status === 200) {
         console.log('Login successful!');
-        // You can set the token in session storage or cookies for authentication
-  
-        navigate('/home'); // Redirect to home page after successful login
+        navigate('/home');
       } else {
-        // Handle login failure
-        console.error('Login failed:', response.data.error);
+        console.error('Login failed:', response.data);
         setLoginError('Invalid username or password');
       }
     } catch (error) {
-      // Handle network errors or other exceptions
       console.error('Login failed:', error);
       setLoginError('An error occurred while logging in');
     }
@@ -90,8 +89,8 @@ function LoginPage() {
         <input
             type="text"
             placeholder="Enter your username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            value={formData.username}
+            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -109,8 +108,8 @@ function LoginPage() {
         <input
             type="password"
             placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            value={formData.password}
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
@@ -138,7 +137,7 @@ function LoginPage() {
             </div>
       </div>
       <div className='logincont1'>
-      <button className='login1' onClick={() => handleRedirect('/login')} variant="outlined" >
+      <button className='login1' onClick={handleLogin} variant="outlined" >
         Login
       </button>
       </div>

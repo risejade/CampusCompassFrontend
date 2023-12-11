@@ -41,7 +41,7 @@ body.Signup-page::after {
 .Signupcont1{
     display: flex;
     margin-top: 547px;
-    margin-left: 350px;
+    margin-left: 345px;
     position: fixed;
     z-index: 2;
 }
@@ -64,17 +64,31 @@ body.Signup-page::after {
 }
 .SignupText{
     display: flex;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: lighter;
-    margin-top: 10px;
-    margin-left: 415px;
+    margin-top: 20px;
+    margin-left: 420px;
     padding-bottom: 0px;
     position: fixed; 
     z-index: 2;
+    animation: glowing 2s infinite;
 }
+
+@keyframes glowing {
+    0% {
+      text-shadow: 0 0 5px #F6B460; 
+    }
+    50% {
+      text-shadow: 0 0 15px #F6B460;
+    }
+    100% {
+      text-shadow: 0 0 5px #F6B460;
+    }
+  }
+
 .Signupatts{
     position: fixed; 
-    margin-top: 90px;
+    margin-top: 80px;
     margin-left: 295px;
     z-index: 2;
 }

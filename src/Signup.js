@@ -11,6 +11,7 @@ function Signup() {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({
     fname: '',
+    Lname:'',
     username: '',
     email: '',
     password: ''
@@ -53,7 +54,8 @@ function Signup() {
   const handleSignup = async () => {
     try {
       const response = await axios.post('http://localhost:8080/usercampus/insertUsercampus', {
-        fname: formData.name,
+        fname: formData.fname,
+        lname: formData.lname,
         username: formData.username,
         email: formData.email,
         password: formData.password
@@ -112,32 +114,59 @@ function Signup() {
         </div>
         </Toolbar>
       </AppBar>
+
+
       <div className='SignupText' >
-        <h2 className='SignupTextFormat'>
+        <h2 className='SignupTextFormat' style={{ fontSize:"30px"}}>
           Sign Up
         </h2>
       </div>
+
+
       <div className='Signupatts'>
-        <h3>Name</h3>
-        <div className='name1'>
+        <h3 style={{ fontSize:"15px"}}>
+          First Name
+          </h3>
+        <div className='fname'>
           <input
             type="text"
             id="fname"
             placeholder="Enter your name"
             onChange={handleChange}
-            value={formData.name}
+            value={formData.fname}
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
                 width: '350px', 
-                height: '30px', 
+                height: '20px', 
                 border: 'none', 
                 backgroundColor: '#F6B460', 
                 borderRadius: '10px',
                 padding: '10px' 
                 }}/>
             </div>
-        <h3>
+        <h3 style={{ fontSize:"15px"}}>
+          Last Name
+          </h3>
+        <div className='lname'>
+          <input
+            type="text"
+            id="lname"
+            placeholder="Enter your name"
+            onChange={handleChange}
+            value={formData.lname}
+              style={{ 
+                fontSize:'17px',
+                color:'#4E1E22', 
+                width: '350px', 
+                height: '20px', 
+                border: 'none', 
+                backgroundColor: '#F6B460', 
+                borderRadius: '10px',
+                padding: '10px' 
+                }}/>
+            </div>
+        <h3 style={{ fontSize:"15px"}}>
             Username
         </h3>
         <div className='Signupuser'>
@@ -151,13 +180,13 @@ function Signup() {
                 fontSize:'17px', 
                 color:'#4E1E22' ,
                 width: '350px', 
-                height: '30px', 
+                height: '20px', 
                 border: 'none',
                 backgroundColor: '#F6B460', 
                 borderRadius: '10px',
                 padding: '10px' }}/>
             </div>
-          <h3>
+          <h3 style={{ fontSize:"15px"}}>
             Email
           </h3>
             <div className='email'>
@@ -171,14 +200,14 @@ function Signup() {
                 fontSize:'17px',
                 color:'#4E1E22', 
                 width: '350px', 
-                height: '30px', 
+                height: '20px', 
                 border: 'none', 
                 backgroundColor: '#F6B460', 
                 borderRadius: '10px',
                 padding: '10px' 
                 }}/>
             </div>
-        <h3>
+        <h3 style={{ fontSize:"15px"}}>
             Password
         </h3>
         <div className='Signuppass'>
@@ -192,7 +221,7 @@ function Signup() {
                 fontSize:'17px',
                 color:'#4E1E22', 
                 width: '350px', 
-                height: '30px', 
+                height: '20px', 
                 border: 'none', 
                 backgroundColor: '#F6B460', 
                 borderRadius: '10px',
