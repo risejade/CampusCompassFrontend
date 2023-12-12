@@ -30,6 +30,10 @@ function NavBar(props) {
     event.stopPropagation();
   };
 
+  const handleLogout = () => {
+    navigate('/login');
+  };
+
   return (
     <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
       <Toolbar variant="dense">
@@ -99,6 +103,15 @@ function NavBar(props) {
                     <MenuItem onClick={() => handleRedirect('/landingpage')}>Logout</MenuItem>
                     {/* Other dropdown items */}
                   </Menu>
+
+                  <div className='logout' onClick={handleLogout}>
+                    <Typography variant="button">
+                      Log out
+                    </Typography>
+                  </div>
+                  <Typography variant="button" style={{ marginLeft: '10px' }}>
+                    {props.user.firstName} {/* Display user's first name */}
+                  </Typography>
                 </div>
               )}
             </div>

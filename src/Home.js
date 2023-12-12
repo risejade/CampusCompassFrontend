@@ -185,7 +185,7 @@ function Footer() {
 }
 
 // Home component
-function Home() {
+function Home(props) {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -255,7 +255,7 @@ function Home() {
         handleBuildingInfo={handleBuildingInfo}
         handleItemClick={handleItemClick}
         handleLandingPage={handleLandingPage}
-        user={user}
+        user={props.user}
         handleLogout={handleLogout}
         stopPropagation={stopPropagation}
         campusLogo={campusLogo}

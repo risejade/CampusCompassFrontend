@@ -40,6 +40,9 @@ function LoginPage() {
       console.log('Response:', response); // Logging the response data
       if (response.status === 200) {
         console.log('Login successful!');
+        // Assuming the response data contains user information with 'fname' as the first name attribute
+        const firstName = response.data.fname; // Adjust this based on your API response structure
+        setUser({ firstName }); // Update the user state with the first name
         navigate('/home');
       } else {
         console.error('Login failed:', response.data);
