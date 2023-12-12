@@ -89,19 +89,31 @@ function About() {
         </p>
       </div>
         <div className='image-container'>
-            <div className='rise'>
-              <img src={rise} alt="The Campus Logo" style={{ position: 'relative', width: '265px', height: 'auto' }} />
-            </div>
-            <div className='yankee'>
-              <img src={yankee} alt="The Campus Logo" style={{ position: 'relative', width: '250px', height: 'auto' }} />
-            </div>
-            <div className='thesaly'>
-              <img src={thesaly} alt="The Campus Logo" style={{ position: 'relative', width: '250px', height: 'auto' }} />
-            </div>
-            <div className='andre'>
-              <img src={andre} alt="The Campus Logo" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+        <div className='rise'>
+          <img src={rise} alt="Rise" style={{ position: 'relative', width: '265px', height: 'auto' }} />
+            <div className='quote-rise'>
+              <p>"Coding is the toolkit for turning imagination into innovation."</p>
             </div>
           </div>
+          <div className='yankee'>
+            <img src={yankee} alt="Yankee" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+            <div className='quote-yankee'>
+              <p>"Writing code is like painting a picture; it's about creating something from nothing."</p>
+            </div>
+          </div>
+          <div className='thesaly'>
+            <img src={thesaly} alt="Thesaly" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+            <div className='quote-thesaly'>
+              <p>"In programming, every problem is an opportunity for an elegant solution."</p>
+            </div>
+          </div>
+          <div className='andre'>
+            <img src={andre} alt="Andre" style={{ position: 'relative', width: '250px', height: 'auto' }} />
+            <div className='quote-andre'>
+              <p>"Code shapes ideas into reality, one keystroke at a time."</p>
+            </div>
+         </div>
+        </div>
       </div>
   </div>
   );

@@ -5,6 +5,8 @@ import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/Signup.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 import axios from 'axios';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function Signup() {
   const navigate = useNavigate();
@@ -16,9 +18,14 @@ function Signup() {
     email: '',
     password: ''
   });
-
+  const [passwordError, setPasswordError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   
+  const handleTogglePassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   useEffect(() => {
     document.body.classList.add('Signup-page');
 
@@ -52,21 +59,32 @@ function Signup() {
   };
 
   const handleSignup = async () => {
+    console.log('Entered password:', formData.password); // Log entered password
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_])[A-Za-z\d\W_]{8,}$/;
+  
+    console.log('Password validation result:', passwordPattern.test(formData.password)); // Log result of validation
+  
+    if (!passwordPattern.test(formData.password)) {
+      setPasswordError('Password should be at least 8 characters, with uppercase, lowercase, and special characters.');
+      return; // Prevent further execution if password criteria are not met
+    }
+  
     try {
       const response = await axios.post('http://localhost:8080/usercampus/insertUsercampus', {
         fname: formData.fname,
         lname: formData.lname,
         username: formData.username,
         email: formData.email,
-        password: formData.password
+        password: formData.password,
+        gender: formData.gender
       });
-
+  
       // Assuming the signup was successful
       console.log('User created:', response.data);
-
+  
       // Show success message
       setSuccessMessage('Account successfully created');
-
+  
       // Clear form data after successful submission if needed
       setFormData({
         fname: '',
@@ -74,7 +92,7 @@ function Signup() {
         email: '',
         password: ''
       });
-
+  
       // Redirect to login page or any other desired page after successful signup
       navigate('/login');
     } catch (error) {
@@ -86,6 +104,9 @@ function Signup() {
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData({ ...formData, [id]: value });
+    if (e.target.id === 'password') {
+      setPasswordError('');
+    }
   };
 
   return (
@@ -123,7 +144,7 @@ function Signup() {
       </div>
 
 
-      <div className='Signupatts'>
+        <div className='fnamecont'>
         <h3 style={{ fontSize:"15px"}}>
           First Name
           </h3>
@@ -137,15 +158,19 @@ function Signup() {
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
-                width: '350px', 
+                width: '150px', 
                 height: '20px', 
                 border: 'none', 
                 backgroundColor: '#F6B460', 
                 borderRadius: '10px',
-                padding: '10px' 
+                padding: '10px',
+                
                 }}/>
-            </div>
-        <h3 style={{ fontSize:"15px"}}>
+             </div>
+           </div>
+
+      <div className='lnamecont'>
+        <h3 style={{ fontSize:"15px", width:'150', textAlign:'right'}}>
           Last Name
           </h3>
         <div className='lname'>
@@ -158,7 +183,7 @@ function Signup() {
               style={{ 
                 fontSize:'17px',
                 color:'#4E1E22', 
-                width: '350px', 
+                width: '150px', 
                 height: '20px', 
                 border: 'none', 
                 backgroundColor: '#F6B460', 
@@ -166,6 +191,33 @@ function Signup() {
                 padding: '10px' 
                 }}/>
             </div>
+          </div> 
+
+        <div className='gender1'>
+          <h3 style={{ fontSize:"15px"}}>
+          Gender
+          </h3>
+        <div className='gender'>
+          <input
+            type="text"
+            id="gender"
+            placeholder="Enter Male, Female or Undecided"
+            onChange={handleChange}
+            value={formData.gender}
+              style={{ 
+                fontSize:'17px',
+                color:'#4E1E22', 
+                width: '350px', 
+                height: '20px', 
+                border: 'none', 
+                backgroundColor: '#F6B460', 
+                borderRadius: '10px',
+                padding: '10px', 
+                }}/>
+              </div>  
+            </div>  
+
+      <div className='Signupatts'>
         <h3 style={{ fontSize:"15px"}}>
             Username
         </h3>
@@ -212,7 +264,7 @@ function Signup() {
         </h3>
         <div className='Signuppass'>
         <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
             placeholder="Enter your password"
             onChange={handleChange}
@@ -227,7 +279,42 @@ function Signup() {
                 borderRadius: '10px',
                 padding: '10px' 
                 }}/>
+              <div className='showpass'>
+                 <Button
+                      variant='contained'
+                      onClick={handleTogglePassword}
+                      style={{
+                        width: '50px',
+                        height: '40px',
+                        backgroundColor: '#F6B460',
+                        border: 'none',
+                        color: '#4E1E22',
+                        cursor: 'pointer',
+                        position:'fixed',
+                        marginTop: '19px', 
+                        marginLeft:'305px',
+                        borderRadius:'200px'
+                      }}
+                    >
+                      {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </Button>
+                </div>
             </div>
+
+            {passwordError && <div className="password-error" 
+            style={{ 
+              maxWidth: '250px', 
+              marginTop: '15px', 
+              padding: '8px', 
+              backgroundColor: 'rgba(255, 0, 0, 0.2)', 
+              borderRadius: '5px',
+              textAlign:'center', 
+              fontSize: '12px',
+              marginLeft:'0px'
+              }}>
+                {passwordError}
+                </div>}
+
       </div>
       <div className='Signupcont'>
       <button className='Signup' onClick={handleSignup}>
@@ -239,7 +326,7 @@ function Signup() {
             style={{ 
             marginLeft: '2px',
             borderBottom: '2px solid #F6B460', 
-            color: 'black', 
+            color: '#F6B460', 
             cursor: 'pointer' 
             }} >Go to Login</span></p>
         </div>

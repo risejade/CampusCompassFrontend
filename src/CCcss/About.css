@@ -79,5 +79,30 @@ body.about-page::after {
     margin-top: 900px;
     margin-left: 865px;
   }
-  .container-aboutus{
-  }
+
+  .quote-rise,
+.quote-yankee,
+.quote-thesaly,
+.quote-andre {
+  display: none;
+  position: absolute;
+  background-color: rgba(247, 247, 247, 0.529);
+  color: black;
+  text-align: center;
+  font-weight: bolder;
+  -webkit-text-stroke: 1px #F6B460; 
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.rise:hover .quote-rise{
+  display: block;
+  top: 219px;
+}
+.yankee:hover .quote-yankee,
+.thesaly:hover .quote-thesaly,
+.andre:hover .quote-andre {
+  display: block;
+  top: 200px;
+}
+

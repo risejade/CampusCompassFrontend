@@ -32,7 +32,7 @@ body.Signup-page::after {
 
 .Signupcont{
     display: flex;
-    margin-top: 547px;
+    margin-top: 500px;
     margin-left: 885px;
     position: fixed;
     z-index: 2;
@@ -41,7 +41,7 @@ body.Signup-page::after {
 .Signupcont1{
     display: flex;
     margin-top: 547px;
-    margin-left: 345px;
+    margin-left: 840px;
     position: fixed;
     z-index: 2;
 }
@@ -88,10 +88,31 @@ body.Signup-page::after {
 
 .Signupatts{
     position: fixed; 
+    margin-top: 260px;
+    margin-left: 295px;
+    z-index: 2;
+}
+
+.fnamecont{
+    position: fixed; 
     margin-top: 80px;
     margin-left: 295px;
     z-index: 2;
 }
+.lnamecont{
+    position: fixed; 
+    margin-top: 80px;
+    margin-left: 495px;
+    z-index: 2;
+}
+
+.gender1{
+    position: fixed; 
+    margin-top: 170px;
+    margin-left: 295px;
+    z-index: 2;
+}
+
 .SignupTextFormat{
     font-size: 40px;
 }
