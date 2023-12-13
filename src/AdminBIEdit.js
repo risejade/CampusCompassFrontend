@@ -4,35 +4,49 @@ import { useNavigate } from 'react-router-dom';
 import campusLogo from './CCcss/CCimage/campus.png';
 import NavBar from './NavBar';
 import { Paper } from '@mui/material';
+import axios from 'axios';
 
 function AdminBIEdit() {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
     const [anchorEl, setAnchorEl] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null); // State for the selected image
-    const [buildingName, setBuildingName] = useState('');
-    const [buildingInfo, setBuildingInfo] = useState('');
-    
-    const handleImageUpload = (event) => {
-      const file = event.target.files[0]; // Assuming a single file selection
-      if (file) {
-          const imageURL = URL.createObjectURL(file);
-          setSelectedImage(imageURL);
-      } else {
-          // If no file is selected (e.g., on cancel), reset the selected image state
-          setSelectedImage(null);
+    const [name, setName] = useState('');
+    const [info, setInfo] = useState('');
+    const [formData, setFormData] = useState({
+      name: '',
+      info:'',
+    });
+
+    const [successMessage, setSuccessMessage] = useState('');
+
+    const handleUploadBI = async () => {
+      try {
+        const response = await axios.post('http://127.0.0.1:8080/building/insertBuilding', {
+    name: formData.name,
+    info: formData.info,
+}, {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+  
+        console.log('User created:', response.data);
+  
+        console.log('Frontend successfully connected to the database');
+        
+        setSuccessMessage('Information added successfully');
+  
+        setFormData({
+          name: '',
+          info: '',
+        });
+  
+        navigate('/admin-building-info');
+      } catch (error) {
+        console.error('Error creating user:', error);
       }
-  };
-
-    const handleCancel = () => {
-      // Resetting the selected image state to null
-      setSelectedImage(null);
-
-      // Resetting other input fields if needed
-      setBuildingName('');
-      setBuildingInfo('');
-      // Additional logic to reset other input fields as necessary
-  };
+    };
 
     const gradientBackground = {
         padding: '20px',
@@ -168,10 +182,12 @@ function AdminBIEdit() {
         Building Name:
     </h3>
     <input
+            
             type="text"
+            id="name"
             placeholder="Enter your building name"
-            value={buildingName}
-            onChange={(e) => setBuildingName(e.target.value)}
+            value={formData.name}
+            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -193,10 +209,12 @@ function AdminBIEdit() {
         Building Information:
     </h3>
     <input
+            
             type="text"
+            id="info"
             placeholder="Enter your building information"
-            value={buildingInfo}
-            onChange={(e) => setBuildingInfo(e.target.value)}
+            value={formData.info}
+            onChange={(e) => setFormData({ ...formData, info: e.target.value })}
             style={{ 
                 fontSize:'17px', 
                 color:'#4E1E22' ,
@@ -208,33 +226,11 @@ function AdminBIEdit() {
                 borderRadius: '10px',
                 padding: '10px' }}/>
                 <br></br>
-                <h3
-                    style={{
-                        color: 'white',
-                        marginLeft: '25px',
-                        fontSize: '20px',
-                        letterSpacing: '2px',
-                        textShadow: '0 0 5px #4E1E22, 0 0 5px #4E1E22, 0 0 5px #4E1E22',
-                    }}>
-                    Building Image:
-                </h3>
-                <input
-                    type="file"
-                    onChange={handleImageUpload}
-                    accept="image/png, image/jpeg, image/webp"
-                    style={inputStyles}
-                />
-                <br />
-                {selectedImage && (
-                    <div>
-                        <img src={selectedImage} alt="Selected" style={imagePreviewStyles} />
-                    </div>
-                )}
-                <br />
-                <Button variant='outlined' style={buttonStyles}>
+                
+                <Button variant='outlined' onClick={handleUploadBI} style={buttonStyles}>
                     Update
                 </Button>
-                <Button variant='outlined' style={{ ...buttonStyles, marginLeft: '10px' }} onClick={handleCancel}>
+                <Button variant='outlined' style={{ ...buttonStyles, marginLeft: '10px' }}>
                     Reset
                 </Button>
                 <br></br>
