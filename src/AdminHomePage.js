@@ -111,6 +111,12 @@ function AdminHome() {
         onClick={() => handleRedirect('/adminaddevent')}>
             Go to Events
             </Button>
+            <Button variant='outlined' 
+         style={{ color:'white'}}
+        onClick={() => handleRedirect('/admin-dashboard')}>
+            Dashboard
+            </Button>
+
         </Paper>
       </div>
 

@@ -59,15 +59,19 @@ function LoginPage() {
   };
   
   const handleHome = () => {
-    navigate('/home');
+    navigate('/view-home');
   };
 
   const handleAbout = () => {
-    navigate('/about');
+    navigate('/view-about');
   };
 
   const handleLandingPage = () => {
-    navigate('/landing');
+    navigate('/landingpage');
+  };
+
+  const handleSignup= () => {
+    navigate('/signup');
   };
 
   return (
@@ -86,6 +90,11 @@ function LoginPage() {
                   <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
                     <Typography variant="button">
                       About Us
+                    </Typography>
+                  </div>
+                  <div className='service' onClick={handleSignup} style={{ cursor: 'pointer' }}>
+                    <Typography variant="button">
+                      Sign Up
                     </Typography>
                   </div>
                   </div>

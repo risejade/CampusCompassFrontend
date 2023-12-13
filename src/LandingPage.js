@@ -32,11 +32,11 @@ function LandingPage() {
 
   const handleHome = () => {
     setUser();
-    navigate('/home'); 
+    navigate('/view-user'); 
   };
 
   const handleAbout = () => {
-    navigate('/about'); 
+    navigate('/view-about'); 
   };
 
   const handleContact = () => {

@@ -31,13 +31,26 @@ function NavBar(props) {
   };
 
   const handleLogout = () => {
-    navigate('/login');
+    try {
+      const isConfirmed = window.confirm("Are you sure you want to logout the information?");
+  
+      if (!isConfirmed) {
+        return;
+      }
+      // Navigate to the landing page after logout
+      navigate('/landingpage');
+    } catch (error) {
+      // Handle errors, if any, during the logout process
+      console.error("Error occurred during logout:", error);
+      // You can display an error message or take appropriate action based on the error
+    }
   };
+
 
   return (
     <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
       <Toolbar variant="dense">
-        <button className='thecampuslog' onClick={() => handleRedirect('/landingpage')}>
+        <button className='thecampuslog' onClick={handleLogout}>
           <img src={campusLogo} alt="The Campus Logo" />
         </button>
         <div className='appbar'>

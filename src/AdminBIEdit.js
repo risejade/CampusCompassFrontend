@@ -18,10 +18,43 @@ function AdminBIEdit() {
       info:'',
     });
 
-    const [successMessage, setSuccessMessage] = useState('');
+    const [updatedBuildingInfo, setUpdatedBuildingInfo] = useState({
+      name: '',
+      info: '',
+    });
 
+    const handleOk = async () => {
+  try {
+    const response = await axios.get('http://127.0.0.1:8080/building/getAllBuilding', {
+    name: formData.name,
+    info: formData.info,
+}, {
+    headers: {
+        'Content-Type': 'application/json',
+    },
+});
+    const data = await response.json();
+
+    console.log('Building data from backend:', data);
+
+    // Update the formData state with the fetched data
+    setFormData({
+      name: data.name,
+      info: data.info,
+    });
+  } catch (error) {
+    console.error('Error fetching building data:', error);
+  }
+};
+    
     const handleUploadBI = async () => {
       try {
+          const isConfirmed = window.confirm("Are you sure you want to update the information?");
+    
+        if (!isConfirmed) {
+          return; 
+        }
+
         const response = await axios.post('http://127.0.0.1:8080/building/insertBuilding', {
     name: formData.name,
     info: formData.info,
@@ -34,20 +67,26 @@ function AdminBIEdit() {
         console.log('User created:', response.data);
   
         console.log('Frontend successfully connected to the database');
-        
-        setSuccessMessage('Information added successfully');
-  
+
         setFormData({
           name: '',
           info: '',
         });
   
-        navigate('/admin-building-info');
-      } catch (error) {
-        console.error('Error creating user:', error);
-      }
-    };
+        handleOk();
 
+        navigate('/admin-building-info', {
+      state: {
+        updatedBuildingInfo: {
+          name: formData.name,
+          info: formData.info,
+        },
+      },
+    });
+  } catch (error) {
+    console.error('Error creating user:', error);
+  }
+};
     const gradientBackground = {
         padding: '20px',
         background: 'linear-gradient(45deg, #4E1E2F -10%, #e6b87b 60%, #fb9918 140%)',
