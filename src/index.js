@@ -21,6 +21,9 @@ import AdminBuildingInfo from './AdminBuildingInfo';
 import AdminAddEvent from './AdminAddEvent';
 import AdminHome from './AdminHomePage';
 import AdminBIEdit from './AdminBIEdit';
+import Home1 from './home1';
+import About1 from './About1';
+import Dashboard from './Dashboard';
 
 ReactDOM.render(
   <Router>
@@ -45,6 +48,9 @@ ReactDOM.render(
         <Route path="/adminaddevent" element={<AdminAddEvent />} />
         <Route path="/admin-home" element={<AdminHome />} />
         <Route path="/admin-building-info-add" element={<AdminBIEdit />} />
+        <Route path="/view-home" element={<Home1 />} />
+        <Route path="/view-about" element={<About1/>} />
+        <Route path="/admin-dashboard" element={<Dashboard/>} />
       </Routes>
     </React.StrictMode>
   </Router>,

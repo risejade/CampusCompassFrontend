@@ -41,19 +41,17 @@ function Signup() {
 
   const handleHome = () => {
     setUser();
-    navigate('/home'); 
+    navigate('/view-home'); 
   };
 
   const handleAbout = () => {
-    navigate('/about'); 
+    navigate('/view-about'); 
   };
 
-  const handleContact = () => {
-    navigate('/contact');
-  };
   const handleLandingPage = () => {
     navigate('/landingpage');
   };
+
   const handleForgotPass = () => {
     navigate('/forgotpass')
   };
@@ -127,6 +125,11 @@ function Signup() {
             About Us
           </Typography>
         </div>
+        <div className='service' onClick={handleLogin} style={{ cursor: 'pointer' }}>
+          <Typography variant="button">
+            Login
+          </Typography>
+        </div>
         </div>
         </Toolbar>
       </AppBar>
@@ -188,29 +191,33 @@ function Signup() {
             </div>
           </div> 
 
-        <div className='gender1'>
-          <h3 style={{ fontSize:"15px"}}>
-          Gender
-          </h3>
-        <div className='gender'>
-          <input
-            type="text"
-            id="gender"
-            placeholder="Enter Male, Female or Undecided"
-            onChange={handleChange}
-            value={formData.gender}
-              style={{ 
-                fontSize:'17px',
-                color:'#4E1E22', 
-                width: '350px', 
-                height: '20px', 
-                border: 'none', 
-                backgroundColor: '#F6B460', 
-                borderRadius: '10px',
-                padding: '10px', 
-                }}/>
-              </div>  
+          <div className='gender1'>
+            <h3 style={{ fontSize:"15px"}}>
+              Gender
+            </h3>
+            <div className='gender'>
+              <select
+                id="gender"
+                onChange={handleChange}
+                value={formData.gender}
+                style={{ 
+                  fontSize:'17px',
+                  color:'#4E1E22', 
+                  width: '350px', 
+                  height: '40px', 
+                  border: 'none', 
+                  backgroundColor: '#F6B460', 
+                  borderRadius: '10px',
+                  padding: '10px', 
+                }}
+              >
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="undecided">Undecided</option>
+              </select>
             </div>  
+          </div>  
 
       <div className='Signupatts'>
         <h3 style={{ fontSize:"15px"}}>

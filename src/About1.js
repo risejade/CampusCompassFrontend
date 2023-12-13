@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
-import NavBar from './NavBar';
+import { AppBar, Toolbar, Typography,} from '@mui/material';
 import './CCcss/About.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 import rise from './CCcss/CCimage/rise.png';
@@ -9,10 +9,10 @@ import yankee from './CCcss/CCimage/yank.png';
 import thesaly from './CCcss/CCimage/thes.png';
 import andre from './CCcss/CCimage/andre.png';
 
-function About(props) {
+function About1() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [anchorEl, setAnchorEl] = useState(null);
+  
   useEffect(() => {
     document.body.classList.add('about-page');
 
@@ -21,90 +21,53 @@ function About(props) {
     };
   }, []);
 
-  const handleDropdownClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleDropdownClose = () => {
-    setAnchorEl(null);
-  };
-
-  const handleItemClick = (item) => {
-    // Logic for handling dropdown item clicks
-    console.log(`Clicked on: ${item}`);
-    handleDropdownClose(); // Close the dropdown after clicking an item
-    // You can add further logic based on the item clicked
-  };
   const handleLogin = () => {
     setUser();
-    navigate('/app');
+    navigate('/login'); 
   };
 
   const handleHome = () => {
     setUser();
-    navigate('/home');
+    navigate('/view-home'); 
   };
 
   const handleAbout = () => {
-    navigate('/about');
+    navigate('/view-about'); 
   };
 
   const handleContact = () => {
     navigate('/contact');
   };
-
   const handleLandingPage = () => {
     navigate('/landingpage');
   };
-  
-  const handleLogout = () => {
-    try {
-      const isConfirmed = window.confirm("Are you sure you want to update the information?");
-  
-      if (!isConfirmed) {
-        return;
-      }
-      // Navigate to the landing page after logout
-      navigate('/landingpage');
-    } catch (error) {
-      // Handle errors, if any, during the logout process
-      console.error("Error occurred during logout:", error);
-      // You can display an error message or take appropriate action based on the error
-    }
-  };
 
-  const handleBuildingInfo = () => {
-    navigate('/buildinginfo');
-  };
-
-  const stopPropagation = (event) => {
-    event.stopPropagation();
-  };
-
-  const handleSearchBldg = () => {
-    navigate('/SearchBuilding');
-  };
-  
-  const handleEvents = () => {
-    navigate('/Events');
-  };
   return (
     <div>
-            <NavBar
-        handleHome={handleHome}
-        handleAbout={handleAbout}
-        handleDropdownClick={handleDropdownClick}
-        handleDropdownClose={handleDropdownClose}
-        handleSearchBldg={handleSearchBldg}
-        handleBuildingInfo={handleBuildingInfo}
-        handleItemClick={handleItemClick}
-        handleLandingPage={handleLandingPage}
-        user={props.user}
-        handleLogout={handleLogout}
-        stopPropagation={stopPropagation}
-        campusLogo={campusLogo}
-      />
-
+      <AppBar position="static" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
+        <Toolbar variant="dense">
+        <button className='thecampuslog' onClick={handleLandingPage}>
+          <img src={campusLogo} alt="The Campus Logo" />
+        </button>
+        <div className='appbar'>
+        <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
+          <Typography variant="button">
+            Home
+          </Typography>
+        </div>
+        <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
+          <Typography variant="button">
+            About Us
+          </Typography>
+        </div>
+        <div className='service' onClick={handleLogin} style={{ cursor: 'pointer' }}>
+          <Typography variant="button">
+           Login
+          </Typography>
+        </div>
+        </div>
+        </Toolbar>
+      </AppBar>
       <div className='container-aboutus'>
       < div className='about-description'>
         <p>
@@ -156,4 +119,4 @@ function About(props) {
   );
 }
 
-export default About;
+export default About1;
