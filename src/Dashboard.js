@@ -8,6 +8,7 @@ import './CCcss/AdminHome.css';
 import { Paper } from '@mui/material';
 import hrLogo from './CCcss/CCimage/hrlogo.png';
 import citLogo from './CCcss/CCimage/citLogo.png';  
+import axios from 'axios';
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -17,21 +18,20 @@ function Dashboard() {
     const [loading, setLoading] = useState(true);
     const [pdfData, setPdfData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8080/usercampus/getAllUsercampus');
-        const data = await response.json();
-        setUserData(data); // Set fetched data to state
-        setLoading(false); // Set loading state to false after data is fetched
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        setLoading(false); // Set loading state to false on error
-      }
-    };
-
-    fetchData();
-  }, []);
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://127.0.0.1:8080/usercampus/getAllUsercampus');
+            setUserData(response.data); // Set fetched data to state
+            setLoading(false); // Set loading state to false after data is fetched
+          } catch (error) {
+            console.error('Error fetching data:', error);
+            setLoading(false); // Set loading state to false on error
+          }
+        };
+      
+        fetchData();
+      }, []);
 
   const generatePDF = () => {
     const pdfContent = (
