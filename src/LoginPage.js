@@ -5,7 +5,7 @@ import './CCcss/LoginPage.css';
 import campusLogo from './CCcss/CCimage/campus.png';
 import axios from 'axios';
 import loginImage from './CCcss/CCimage/login.png'
-import NavBar from './NavBar';
+import { AppBar, Toolbar, Typography,} from '@mui/material';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -72,13 +72,25 @@ function LoginPage() {
 
   return (
     <div>
-      <NavBar
-        handleHome={handleHome}
-        handleAbout={handleAbout}
-        handleLandingPage={handleLandingPage}
-        user={user}
-        campusLogo={campusLogo}
-      />
+              <AppBar position="static" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)' }}>
+                  <Toolbar variant="dense">
+                  <button className='thecampuslog' onClick={handleLandingPage}>
+                    <img src={campusLogo} alt="The Campus Logo" />
+                  </button>
+                  <div className='appbar'>
+                  <div className='homebut' onClick={handleHome} style={{ cursor: 'pointer' }}>
+                    <Typography variant="button">
+                      Home
+                    </Typography>
+                  </div>
+                  <div className='about' onClick={handleAbout} style={{ cursor: 'pointer' }}>
+                    <Typography variant="button">
+                      About Us
+                    </Typography>
+                  </div>
+                  </div>
+                  </Toolbar>
+                </AppBar>
       <div className='loginText'>
         <h2 className='logintextFormat'>
           Login

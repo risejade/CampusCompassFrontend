@@ -127,11 +127,6 @@ function Signup() {
             About Us
           </Typography>
         </div>
-        <div className='services' onClick={handleContact} style={{ cursor: 'pointer' }}>
-          <Typography variant="button">
-           Services
-          </Typography>
-        </div>
         </div>
         </Toolbar>
       </AppBar>
