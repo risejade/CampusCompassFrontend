@@ -3,9 +3,11 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import campusLogo from './CCcss/CCimage/campus.png';
 import NavBar from './NavBar';
-import { Document, Page, Text, View, StyleSheet, PDFDownloadLink } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, PDFDownloadLink, Image } from '@react-pdf/renderer';
 import './CCcss/AdminHome.css';
 import { Paper } from '@mui/material';
+import hrLogo from './CCcss/CCimage/hrlogo.png';
+import citLogo from './CCcss/CCimage/citLogo.png';  
 
 function Dashboard() {
     const navigate = useNavigate();
@@ -33,78 +35,100 @@ function Dashboard() {
 
   const generatePDF = () => {
     const pdfContent = (
-      <Document>
-        <Page style={styles.page}>
-          <Text style={styles.title}>Users Information Table</Text>
+       <Document>
+        <Page size="A4" style={styles.page}>
+        <View style={styles.header}>
+            <Image src={hrLogo} style={styles.logo} />
+            <Text style={styles.title}>Users Information Table</Text>
+            <Image src={citLogo} style={styles.logo} /> {/* Add this line */}
+          </View>
           <View style={styles.table}>
             <View style={styles.tableRow}>
-              <Text style={styles.tableHeader}>ID</Text>
-              <Text style={styles.tableHeader}>Email</Text>
-              <Text style={styles.tableHeader}>First Name</Text>
-              <Text style={styles.tableHeader}>Last Name</Text>
-              <Text style={styles.tableHeader}>Gender</Text>
-              {/* Add more headers for other columns if needed */}
+              <Text style={styles.tableColHeader}>ID</Text>
+              <Text style={styles.tableColHeader}>Email</Text>
+              <Text style={styles.tableColHeader}>First Name</Text>
+              <Text style={styles.tableColHeader}>Last Name</Text>
+              <Text style={styles.tableColHeader}>Gender</Text>
             </View>
-            {/* Render table data */}
             {userData.map((user) => (
               <View key={user.sid} style={styles.tableRow}>
-                <Text style={styles.tableCell}>{user.sid}</Text>
-                <Text style={styles.tableCell}>{user.email}</Text>
-                <Text style={styles.tableCell}>{user.fname}</Text>
-                <Text style={styles.tableCell}>{user.lname}</Text>
-                <Text style={styles.tableCell}>{user.gender}</Text>
-                {/* Add more cells for other columns if needed */}
+                <Text style={styles.tableCol}>{user.sid}</Text>
+                <Text style={styles.tableCol}>{user.email}</Text>
+                <Text style={styles.tableCol}>{user.fname}</Text>
+                <Text style={styles.tableCol}>{user.lname}</Text>
+                <Text style={styles.tableCol}>{user.gender}</Text>
               </View>
             ))}
           </View>
         </Page>
       </Document>
     );
-
+  
     setPdfData(pdfContent);
   };
+  
   const styles = StyleSheet.create({
-    page: {
-      flexDirection: 'column',
-      backgroundColor: '#ffffff',
-      padding: 20,
-    },
-    title: {
-      fontSize: 18,
-      marginBottom: 15,
-      textAlign: 'center',
-    },
-    row: {
-      flexDirection: 'row',
-      borderBottomColor: '#000000',
-      borderBottomWidth: 1,
-      padding: 5,
-    },
-    cell: {
-      flex: 1,
-      textAlign: 'center',
-    },
-    table: {
-        display: 'table',
-        width: 'auto',
-        marginBottom: 10,
-      },
-      tableRow: {
-        flexDirection: 'row',
-        borderBottomColor: '#000000',
-        borderBottomWidth: 1,
-        padding: 5,
-      },
-      tableHeader: {
-        flex: 1,
-        textAlign: 'center',
-        fontWeight: 'bold',
-      },
-      tableCell: {
-        flex: 1,
-        textAlign: 'center',
-      },
-    });
+            page: {
+            flexDirection: 'column',
+            backgroundColor: '#ffffff',
+            padding: 40,
+            },
+            title: {
+            fontSize: 24,
+            marginBottom: 20,
+            textAlign: 'center',
+            textTransform: 'uppercase',
+            color: '#4E1E2F',
+            },
+            table: {
+            display: 'table',
+            width: '100%',
+            borderStyle: 'solid',
+            borderWidth: 1,
+            borderRightWidth: 0,
+            borderBottomWidth: 0,
+            },
+            tableRow: {
+            margin: 'auto',
+            flexDirection: 'row',
+            },
+            tableColHeader: {
+            width: '20%',
+            borderStyle: 'solid',
+            borderWidth: 1,
+            borderBottomColor: '#000',
+            backgroundColor: '#4E1E2F',
+            color: '#fff',
+            padding: 5,
+            textAlign: 'center',
+            fontSize: 10,
+            },
+            tableCol: {
+            width: '20%',
+            borderStyle: 'solid',
+            borderWidth: 1,
+            borderBottomColor: '#000',
+            padding: 5,
+            textAlign: 'center',
+            fontSize: 10,
+            },
+            header: {
+                flexDirection: 'row',
+                justifyContent: 'space-between', // Aligns images at the ends
+                alignItems: 'center',
+                marginBottom: 20,
+              },
+              // Updated logo style to manage size
+              logo: {
+                width: 50, // Adjust the width of the logo as needed
+                height: 50, // Adjust the height of the logo as needed
+              },
+              title: {
+                fontSize: 24,
+                textTransform: 'uppercase',
+                color: '#4E1E2F',
+              },
+        });
 
   const tableStyle = {
     width: '100%', // Make the table occupy 100% width of its container

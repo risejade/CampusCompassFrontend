@@ -110,15 +110,6 @@ function AdminLogin() {
         Login
       </button>
       </div>
-        <div className='signupcont1'>
-            <p>Don't have an account yet? <span onClick={handleSignUp} 
-            style={{ 
-            marginLeft: '2px',
-            borderBottom: '2px solid #F6B460', 
-            color: 'black', 
-            cursor: 'pointer' 
-            }} >Sign Up</span></p>
-        </div>
         <div className='Adminimageback'>
         </div>
     </div>
