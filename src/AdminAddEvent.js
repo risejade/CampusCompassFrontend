@@ -27,6 +27,11 @@ function AdminAddEvent() {
 
   const handleAddevent = async () => {
     try {
+      const isConfirmed = window.confirm("Are you sure you want to update the information?");
+
+    if (!isConfirmed) {
+      return; 
+    }
       const response = await axios.post('http://127.0.0.1:8080/event/insertEvent', {
   eventname: formData.eventname,
   description: formData.description,

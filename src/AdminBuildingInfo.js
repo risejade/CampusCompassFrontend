@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Typography,
@@ -33,13 +33,30 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import NavBar from './NavBar';
+import axios from 'axios';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
 function AdminBuildingInfo() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [setAnchorEl] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    info: '',
+  });
+
+  const [updatedBuildingInfo, setUpdatedBuildingInfo] = useState({
+    name: '',
+    info: '',
+  });
+
+  useEffect(() => {
+    setUpdatedBuildingInfo({
+      name: formData.name,
+      info: formData.info,
+    });
+  }, [formData]);
 
   const CustomCard = ({ imgSrc, imgAlt, title, description, buttonText, link }) => {
     const [showImage, setShowImage] = useState(false);
@@ -99,7 +116,29 @@ function AdminBuildingInfo() {
     );
   };
   
-
+  const handleOk = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8080/building/getAllBuilding', {
+      name: formData.name,
+      info: formData.info,
+  }, {
+      headers: {
+          'Content-Type': 'application/json',
+      },
+  });
+      const data = await response.json();
+  
+      console.log('Building data from backend:', data);
+  
+      // Update the formData state with the fetched data
+      setFormData({
+        name: data.name,
+        info: data.info,
+      });
+    } catch (error) {
+      console.error('Error fetching building data:', error);
+    }
+  };
   
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
