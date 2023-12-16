@@ -4,15 +4,17 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 const MapContainer = () => {
 
   const wrapperStyles = {
-    paddingTop: '20px', // Add space above the image (adjust the value as needed)
+    paddingTop: '20px', 
     textAlign: 'center'
   };
 
   const mapStyles = {
     height: '80vh',
     width: '80%',
-    margin: 'auto', // Center the image horizontally
-    display: 'block' // Make the image a block element
+    margin: 'auto', 
+    display: 'block', 
+    borderRadius: '30px',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'
   };
 
   const defaultCenter = {

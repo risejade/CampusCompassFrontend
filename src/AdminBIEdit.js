@@ -265,7 +265,7 @@ function AdminBIEdit() {
                 borderRadius: '10px',
                 padding: '10px' }}/>
                 <br></br>
-                
+                <br></br>
                 <Button variant='outlined' onClick={handleUploadBI} style={buttonStyles}>
                     Update
                 </Button>

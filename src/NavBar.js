@@ -7,6 +7,7 @@ function NavBar(props) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [user, setUser] = useState(null);
+  const [profileAnchorEl, setProfileAnchorEl] = useState(null);
 
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -14,6 +15,14 @@ function NavBar(props) {
 
   const handleDropdownClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleProfileDropdownClick = (event) => {
+    setProfileAnchorEl(event.currentTarget);
+  };
+  
+  const handleProfileDropdownClose = () => {
+    setProfileAnchorEl(null);
   };
 
   const handleItemClick = (item) => {
@@ -94,13 +103,13 @@ function NavBar(props) {
                   <Avatar
                     alt="User Profile"
                     src="../CCcss/CCimage/rise.png"
-                    onClick={handleDropdownClick}
+                    onClick={handleProfileDropdownClick}
                     style={{ cursor: 'pointer', marginRight: '10px' }}
                   />
                   <Menu
-                    anchorEl={anchorEl}
-                    open={Boolean(anchorEl)}
-                    onClose={handleDropdownClose}
+                    anchorEl={profileAnchorEl}
+                    open={Boolean(profileAnchorEl)}
+                    onClose={handleProfileDropdownClose}
                     getContentAnchorEl={null}
                     anchorOrigin={{
                       vertical: 'bottom',
@@ -116,18 +125,18 @@ function NavBar(props) {
                     <MenuItem onClick={() => handleRedirect('/landingpage')}>Logout</MenuItem>
                     {/* Other dropdown items */}
                   </Menu>
-
                   <div className='logout' onClick={handleLogout}>
                     <Typography variant="button">
                       Log out
                     </Typography>
                   </div>
                   <Typography variant="button" style={{ marginLeft: '10px' }}>
-                    {props.user.firstName} {/* Display user's first name */}
+                    {props.user.fname} 
                   </Typography>
                 </div>
               )}
             </div>
+
           </div>
         </div>
       </Toolbar>

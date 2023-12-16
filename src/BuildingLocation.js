@@ -13,7 +13,7 @@ import {
   CardContent,
   CardActions,
 } from '@mui/material';
-import './CCcss/BuildingInformation.css'; // Assuming you have a separate CSS file for styling
+import './CCcss/BuildingInformation.css'; 
 import campusLogo from './CCcss/CCimage/campus.png';
 import GLE from './CCcss/CCimage/GLE.jpg';
 import SAL from './CCcss/CCimage/SAL.jpg';
@@ -33,8 +33,8 @@ function BuildingLocation() {
 
   const CustomCard = ({ imgSrc, imgAlt, title, description, buttonText, link }) => {
     const cardStyle = {
-      width: '400px', // Set your desired width
-      height: '485px', // Set your desired height
+      width: '400px', 
+      height: '485px', 
     };
   
     return (
@@ -70,10 +70,8 @@ function BuildingLocation() {
   };
 
   const handleItemClick = (item) => {
-    // Logic for handling dropdown item clicks
     console.log(`Clicked on : ${item}`);
-    handleDropdownClose(); // Close the dropdown after clicking an item
-    // You can add further logic based on the item clicked
+    handleDropdownClose();
   };
   const handleLogin = () => {
     setUser();

@@ -30,10 +30,8 @@ function About(props) {
   };
 
   const handleItemClick = (item) => {
-    // Logic for handling dropdown item clicks
     console.log(`Clicked on: ${item}`);
-    handleDropdownClose(); // Close the dropdown after clicking an item
-    // You can add further logic based on the item clicked
+    handleDropdownClose(); 
   };
   const handleLogin = () => {
     setUser();
@@ -64,12 +62,10 @@ function About(props) {
       if (!isConfirmed) {
         return;
       }
-      // Navigate to the landing page after logout
+
       navigate('/landingpage');
     } catch (error) {
-      // Handle errors, if any, during the logout process
       console.error("Error occurred during logout:", error);
-      // You can display an error message or take appropriate action based on the error
     }
   };
 

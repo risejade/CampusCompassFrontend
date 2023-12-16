@@ -107,32 +107,6 @@ function BigBox({ title, content }) {
   );
 }
 
-// Updated DashboardBox component
-function DashboardBox() {
-  return (
-    <div className="dashboard-box">
-      <div className="dashboard-header">
-        <h1 className="dashboard-title">Dashboard</h1>
-      </div>
-      <div className="dashboard-content">
-        {/* Small boxes in a 2x2 layout */}
-        <div className="small-boxes">
-          <div className="row">
-            <SmallBox content="Most Visited Building" />
-            <SmallBox content="# of Teknoys Registered" />
-          </div>
-          <div className="row">
-            <SmallBox content="Small box content 3" />
-            <SmallBox content="Small box content 4" />
-          </div>
-        </div>
-        {/* Big box to the right of small boxes */}
-        <BigBox content="Big box content" />
-      </div>
-    </div>
-  );
-}
-
 function Footer() {
   const navigate = useNavigate();
 
@@ -140,12 +114,16 @@ function Footer() {
     navigate('/about');
   };
 
-  const handleLogin = () => {
-    navigate('/login');
+  const handleBI= () => {
+    navigate('/buildinginfo');
   };
 
-  const handleSignUp = () => {
-    navigate('/signup');
+  const handleMR = () => {
+    navigate('/maintenancerep');
+  };
+
+  const handleEvents = () => {
+    navigate('/Events');
   };
 
   const handleBackToTop = () => {
@@ -174,8 +152,9 @@ function Footer() {
           <h1 className='links'>Quick Links</h1>
           <ul className='link-list'>
             <li onClick={handleAboutUs} style = {{ cursor: 'pointer'}} >About us</li>
-            <li onClick={handleLogin}style = {{ cursor: 'pointer'}} >Login</li>
-            <li onClick={handleSignUp}style = {{ cursor: 'pointer'}} >Sign Up</li>
+            <li onClick={handleBI}style = {{ cursor: 'pointer'}} >Building Information</li>
+            <li onClick={handleEvents}style = {{ cursor: 'pointer'}} >Events</li>
+            <li onClick={handleMR}style = {{ cursor: 'pointer'}} >Maintenance Report</li>
             <li onClick={handleBackToTop}style = {{ cursor: 'pointer'}} >Back to top</li>
           </ul>
         </div>
@@ -256,7 +235,7 @@ function Home(props) {
         handleItemClick={handleItemClick}
         handleLandingPage={handleLandingPage}
         user={props.user}
-        handleLogout={handleLogout}
+        handleLogout={props.handleLogout}
         stopPropagation={stopPropagation}
         campusLogo={campusLogo}
       />
@@ -270,7 +249,6 @@ function Home(props) {
 
       {/* Include the AdditionalBox component below the other components */}
       <AdditionalBox />
-      <DashboardBox />
       <Footer />
     </div>
   );

@@ -107,31 +107,6 @@ function BigBox({ title, content }) {
   );
 }
 
-// Updated DashboardBox component
-function DashboardBox() {
-  return (
-    <div className="dashboard-box">
-      <div className="dashboard-header">
-        <h1 className="dashboard-title">Dashboard</h1>
-      </div>
-      <div className="dashboard-content">
-        {/* Small boxes in a 2x2 layout */}
-        <div className="small-boxes">
-          <div className="row">
-            <SmallBox content="Most Visited Building" />
-            <SmallBox content="# of Teknoys Registered" />
-          </div>
-          <div className="row">
-            <SmallBox content="Small box content 3" />
-            <SmallBox content="Small box content 4" />
-          </div>
-        </div>
-        {/* Big box to the right of small boxes */}
-        <BigBox content="Big box content" />
-      </div>
-    </div>
-  );
-}
 
 function Footer() {
   const navigate = useNavigate();
@@ -257,10 +232,7 @@ function Home1() {
         <UpdatesBox />
         {/* ... (other content) */}
       </div>
-
-      {/* Include the AdditionalBox component below the other components */}
       <AdditionalBox />
-      <DashboardBox />
       <Footer />
     </div>
   );

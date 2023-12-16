@@ -276,7 +276,7 @@ function Dashboard() {
         <br></br>
     <Paper style={gradientBackground}>
        {renderTable()}
-       <Button variant="contained" onClick={generatePDF}>Export to PDF</Button>
+       <Button className variant="contained" onClick={generatePDF}>Export to PDF</Button>
         {pdfData && (
           <PDFDownloadLink document={pdfData} fileName="users_information.pdf">
             {({ blob, url, loading, error }) => (loading ? 'Loading document...' : 'Download PDF')}
