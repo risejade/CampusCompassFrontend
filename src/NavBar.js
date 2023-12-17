@@ -1,13 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Menu, MenuItem, Button, Avatar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import campusLogo from './CCcss/CCimage/campus.png';
+import axios from 'axios';
 
 function NavBar(props) {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [user, setUser] = useState(null);
   const [profileAnchorEl, setProfileAnchorEl] = useState(null);
+
+
+  useEffect(() => {
+    // Fetch user data from the API
+    const fetchUserData = async () => {
+      try {
+        // Assuming you have the user's username stored in localStorage after successful login
+        const loggedInUsername = localStorage.getItem('loggedInUsername');
+        if (loggedInUsername) {
+          const response = await axios.get(`http://127.0.0.1:8080/usercampus/getAllUsercampus?username=${loggedInUsername}`);
+          const userData = response.data;
+          // Assuming the response structure returns an array of users and you want the first user
+          if (userData && userData.length > 0) {
+            setUser(userData[0]);
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+        // Handle errors accordingly
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
 
   const handleDropdownClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -25,18 +51,8 @@ function NavBar(props) {
     setProfileAnchorEl(null);
   };
 
-  const handleItemClick = (item) => {
-    console.log(`Clicked on: ${item}`);
-    handleDropdownClose();
-    // Further logic based on the item clicked
-  };
-
   const handleRedirect = (path) => {
     navigate(path);
-  };
-
-  const stopPropagation = (event) => {
-    event.stopPropagation();
   };
 
   const handleLogout = () => {
@@ -55,7 +71,6 @@ function NavBar(props) {
     }
   };
 
-
   return (
     <AppBar position="relative" style={{ backgroundColor: 'rgba(246, 180, 96, 0.8)', maxWidth: 'auto', margin: '0 auto' }}>
       <Toolbar variant="dense">
@@ -73,7 +88,7 @@ function NavBar(props) {
               About Us
             </Typography>
           </div>
-          <div className='services' style={{ cursor: 'pointer' }} onClick={stopPropagation}>
+          <div className='services' style={{ cursor: 'pointer' }}>
             <Button onClick={handleDropdownClick} style={{ color: 'white' }}>
               Services
             </Button>
@@ -97,46 +112,67 @@ function NavBar(props) {
               <MenuItem onClick={() => handleRedirect('/Events')}>Events</MenuItem>
               <MenuItem onClick={() => handleRedirect('/adminlogin')}>Admin</MenuItem>
             </Menu>
-            <div className="profile-menu">
-              {user && (
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <Avatar
-                    alt="User Profile"
-                    src="../CCcss/CCimage/rise.png"
-                    onClick={handleProfileDropdownClick}
-                    style={{ cursor: 'pointer', marginRight: '10px' }}
-                  />
-                  <Menu
-                    anchorEl={profileAnchorEl}
-                    open={Boolean(profileAnchorEl)}
-                    onClose={handleProfileDropdownClose}
-                    getContentAnchorEl={null}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'right',
-                    }}
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                  >
-                    {/* Your dropdown menu items */}
-                    <MenuItem onClick={() => handleItemClick('Edit Profile')}>Edit Profile</MenuItem>
-                    <MenuItem onClick={() => handleRedirect('/landingpage')}>Logout</MenuItem>
-                    {/* Other dropdown items */}
-                  </Menu>
-                  <div className='logout' onClick={handleLogout}>
-                    <Typography variant="button">
-                      Log out
-                    </Typography>
-                  </div>
-                  <Typography variant="button" style={{ marginLeft: '10px' }}>
-                    {props.user.fname} 
-                  </Typography>
-                </div>
+          </div>
+          <div className='profile' style={{ cursor: 'pointer' }}>
+            <Button onClick={handleProfileDropdownClick} style={{ color: 'white' }}>
+              Profile
+            </Button>
+            <Menu
+              anchorEl={profileAnchorEl}
+              open={Boolean(profileAnchorEl)}
+              onClose={handleProfileDropdownClose}
+              getContentAnchorEl={null}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+            >
+             {user && (
+                <MenuItem disabled>
+                  {user.fname} {/* Display logged-in user's first name */}
+                </MenuItem>
               )}
-            </div>
-
+              <MenuItem onClick={() => handleRedirect('/user-profile')}>Profile Page</MenuItem>
+              <MenuItem onClick={() => handleRedirect('/update-password')}>Update Password</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </Menu>
+          </div>
+          <div className="profile-menu">
+            {props.user && (
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <Avatar
+                  alt="User Profile"
+                  src="../CCcss/CCimage/rise.png"
+                  onClick={handleProfileDropdownClick}
+                  style={{ cursor: 'pointer', marginRight: '10px' }}
+                />
+                <Menu
+                  anchorEl={profileAnchorEl}
+                  open={Boolean(profileAnchorEl)}
+                  onClose={handleProfileDropdownClose}
+                  getContentAnchorEl={null}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'right',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                >
+                  <MenuItem onClick={() => handleRedirect('/user-profile')}>Profile Page</MenuItem>
+                  <MenuItem onClick={() => handleRedirect('/update-password')}>Update Password</MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                </Menu>
+                <Typography variant="button" style={{ marginLeft: '10px' }}>
+                  {props.user.fname}
+                </Typography>
+              </div>
+            )}
           </div>
         </div>
       </Toolbar>

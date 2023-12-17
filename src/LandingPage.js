@@ -32,7 +32,7 @@ function LandingPage() {
 
   const handleHome = () => {
     setUser();
-    navigate('/view-user'); 
+    navigate('/view-home'); 
   };
 
   const handleAbout = () => {

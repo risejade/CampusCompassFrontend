@@ -6,6 +6,8 @@ import campusLogo from './CCcss/CCimage/campus.png';
 import axios from 'axios';
 import loginImage from './CCcss/CCimage/login.png'
 import { AppBar, Toolbar, Typography,} from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -17,16 +19,22 @@ function LoginPage() {
     username: '',
     password: ''
   });
-
-  const [successMessage, setSuccessMessage] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberPassword, setRememberPassword] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('Login-page1');
-
+  
+    const rememberedPassword = localStorage.getItem(formData.username);
+    if (rememberedPassword) {
+      setFormData(prevData => ({ ...prevData, password: rememberedPassword }));
+      setRememberPassword(true);
+    }
+  
     return () => {
       document.body.classList.remove('Login-page1');
     };
-  }, []);
+  }, [formData.username]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -40,17 +48,30 @@ function LoginPage() {
       console.log('Response:', response); // Logging the response data
       if (response.status === 200) {
         console.log('Login successful!');
-        // Assuming the response data contains user information with 'fname' as the first name attribute
+        // Save password to local storage if "Remember Password" is checked
+        if (rememberPassword) {
+          localStorage.setItem(formData.username, formData.password);
+        }
         const firstName = response.data.fname; // Adjust this based on your API response structure
-        setUser({ firstName }); // Update the user state with the first name
+        setUser({ firstName });
         navigate('/home');
+        alert('Login successful!'); // Alert for successful login
       } else {
         console.error('Login failed:', response.data);
         setLoginError('Invalid username or password');
+        alert('Invalid username or password'); // Alert for invalid credentials
       }
     } catch (error) {
       console.error('Login failed:', error);
       setLoginError('An error occurred while logging in');
+      alert('An error occurred while logging in'); // Alert for login error
+    }
+  };
+
+  const handleRememberPassword = () => {
+    setRememberPassword(!rememberPassword);
+    if (!rememberPassword) {
+      localStorage.removeItem(formData.username); // Clear stored password if unchecked
     }
   };
 
@@ -128,28 +149,48 @@ function LoginPage() {
         <h3>
             Password
         </h3>
-        <div className='pass'>
-        <input
-            type="password"
-            placeholder="Enter your password"
-            value={formData.password}
-            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-              style={{ 
-                fontSize:'17px',
-                color:'#4E1E22', 
-                width: '350px', 
-                height: '30px', 
-                border: 'none', 
-                backgroundColor: '#F6B460', 
-                borderRadius: '10px',
-                padding: '10px' 
-                }}/>
-            </div>
+        <div className='pass' style={{ position: 'relative' }}>
+      <input
+        type={showPassword ? 'text' : 'password'}
+        placeholder="Enter your password"
+        value={formData.password}
+        onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+        style={{
+          fontSize: '17px',
+          color: '#4E1E22',
+          width: '350px',
+          height: '30px',
+          border: 'none',
+          backgroundColor: '#F6B460',
+          borderRadius: '10px',
+          padding: '10px',
+        }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              cursor: 'pointer',
+              color:'#4E1E22'
+            }}
+            onClick={() => setShowPassword((prevShowPassword) => !prevShowPassword)}
+          >
+            {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+          </div>
+        </div>
             <div className='rempass' style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
-                <input type="checkbox" id="rememberPassword" style={{ marginRight: '5px', cursor: 'pointer' }} />
-                <label htmlFor="rememberPassword" 
-                style={{ color:'black',}}>
-                    Remember Password</label>
+            <input
+                type="checkbox"
+                id="rememberPassword"
+                style={{ marginRight: '5px', cursor: 'pointer' }}
+                checked={rememberPassword}
+                onChange={handleRememberPassword}
+              />
+              <label htmlFor="rememberPassword" style={{ color:'black',}}>
+                Remember Password
+              </label>
                 <span 
                 style={{ 
                     marginLeft: '75px', 

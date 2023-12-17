@@ -80,8 +80,8 @@ function Signup() {
       // Assuming the signup was successful
       console.log('User created:', response.data);
   
-      // Show success message
-      setSuccessMessage('Account successfully created');
+      // Show success message using window.alert()
+      window.alert('Account successfully created');
   
       // Clear form data after successful submission if needed
       setFormData({
@@ -95,6 +95,10 @@ function Signup() {
       navigate('/login');
     } catch (error) {
       // Handle error responses
+  
+      // Show error message using window.alert()
+      window.alert('Failed to create account. Please try again.');
+  
       console.error('Error creating user:', error);
     }
   };

@@ -15,13 +15,7 @@ import {
 } from "reactstrap";
 import "./CCcss/ProfilePage.css";
 
-const UpoloadAvatar = ({
-  userId,
-  token,
-  username,
-  avatarUrl,
-  setisUserUpdated,
-}) => {
+const UploadAvatar = ({ userId, token, username, avatarUrl, setisUserUpdated }) => {
   const [modal, setModal] = useState(false);
   const [file, setFile] = useState(null);
 
@@ -151,13 +145,16 @@ const Profile = ({ token }) => {
         <div className="avatar-wrapper">
           {user.avatarUrl ? (
             <img
+              className="avatar-image"
               src={`http://localhost:3000${user.avatarUrl}`}
               alt={`${user.username} avatar`}
             />
           ) : (
-            <IoPersonCircleOutline />
+            <div className="default-avatar">
+              <IoPersonCircleOutline className="avatar-icon" />
+            </div>
           )}
-          <UpoloadAvatar
+          <UploadAvatar
             token={token}
             userId={user.id}
             username={user.username}
@@ -167,8 +164,12 @@ const Profile = ({ token }) => {
         </div>
       </div>
       <div className="profilebody">
-        <p>Name: {user.username}</p>
-        <p>Email: {user.email}</p>
+        <p className="profile-info">
+          <span className="info-label">Name:</span> {user.username}
+        </p>
+        <p className="profile-info">
+          <span className="info-label">Email:</span> {user.email}
+        </p>
       </div>
     </div>
   );

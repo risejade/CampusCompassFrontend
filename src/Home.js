@@ -234,8 +234,8 @@ function Home(props) {
         handleBuildingInfo={handleBuildingInfo}
         handleItemClick={handleItemClick}
         handleLandingPage={handleLandingPage}
-        user={props.user}
-        handleLogout={props.handleLogout}
+        user={user}
+        handleLogout={handleLogout}
         stopPropagation={stopPropagation}
         campusLogo={campusLogo}
       />
