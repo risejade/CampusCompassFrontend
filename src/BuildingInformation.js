@@ -169,8 +169,7 @@ function BuildingInformation() {
             stopPropagation={stopPropagation}
             campusLogo={campusLogo}
             handleEventso={handleEvents}
-          /> 
-
+          />
       <div className="card-columns">
       <CustomCard 
           imgSrc={ACADS} 
