@@ -20,6 +20,7 @@ import campusLogo from './CCcss/CCimage/campus.png';
 import hrLogo from './CCcss/CCimage/hrlogo.png';
 import MaintenanceLogo from './CCcss/CCimage/MaintenanceLogo.png';
 import NavBar from './NavBar';
+import axios from 'axios';
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Chettan:wght@400;700&display=swap" />
 
@@ -31,8 +32,53 @@ function Maintenance() {
   const [maintenanceDetails, setMaintenanceDetails] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    eventname: '',
+    description:'',
+  });
 
   const buildings = ['ACADEMIC', 'ALLIED', 'ELEMENTARY', 'NGE', 'GLE', 'SAL', 'RTL', 'G-PHYSLAB', 'PE AREA', 'GYMNASIUM'];
+
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const handleMainRep = async () => {
+    if (!formData.bldgname || !formData.details.trim()) {
+      alert('Please choose a building and provide maintenance details before submitting.');
+      return;
+    }
+    
+    try {
+      const isConfirmed = window.confirm("Are you sure you want to update the information?");
+
+    if (!isConfirmed) {
+      return; 
+    }
+      const response = await axios.post('http://127.0.0.1:8080/maintenance/insertMaintenance', {
+  bldgname: formData.bldgname,
+  details: formData.details,
+}, {
+  headers: {
+      'Content-Type': 'application/json',
+  },
+});
+
+      console.log('Maintenance Report', response.data);
+
+      console.log('Frontend successfully connected to the database');
+      
+      setSuccessMessage('Maintenance Report Submitted');
+
+      setFormData({
+        bldgnamename: '',
+        details: '',
+      });
+
+      navigate('/maintenance');
+    } catch (error) {
+      console.error('Error submitting report:', error);
+    }
+  };
+
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
@@ -147,8 +193,8 @@ function Maintenance() {
             className="building-select"
             labelId="building-label"
             id="building-select"
-            value={selectedBuilding}
-            onChange={(e) => setSelectedBuilding(e.target.value)}
+            value={formData.bldgname}
+            onChange={(e) => setFormData({ ...formData, bldgname: e.target.value })}
             label="Building"
             style={{
               color: '#fff',
@@ -178,8 +224,8 @@ function Maintenance() {
           multiline
           rows={4}
           variant="outlined"
-          value={maintenanceDetails}
-          onChange={(e) => setMaintenanceDetails(e.target.value)}
+          value={formData.details}
+          onChange={(e) => setFormData({ ...formData, details: e.target.value })}
           onFocus={(e) => e.target.placeholder = ""}
           onBlur={(e) => e.target.placeholder = "Please include as much info as possible..."}
           placeholder="Please include as much info as possible..."
@@ -200,7 +246,7 @@ function Maintenance() {
           Upload
         </Button>
 
-        <Button className='submit' variant="contained" onClick={handleSubmit} style={{ fontFamily: 'Poppins Medium', marginTop: '.1px', marginLeft:'1px', backgroundColor: '#62272C'}}>
+        <Button className='submit' variant="contained" onClick={handleMainRep} style={{ fontFamily: 'Poppins Medium', marginTop: '.1px', marginLeft:'1px', backgroundColor: '#62272C'}}>
           Submit
         </Button>
 

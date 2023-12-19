@@ -11,13 +11,8 @@ import axios from 'axios';
 
 function AdminAddEvent() {
   const navigate = useNavigate();
-  const [eventname, setEventname] = useState('');
-  const [description, setDescription] = useState('');
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [uploadError, setUploadError] = useState(null);
   const [anchorEl, setAnchorEl] = useState(null); 
   const [user, setUser] = useState(null); 
-  const [uploadedEventData, setUploadedEventData] = useState(null);
   const [formData, setFormData] = useState({
     eventname: '',
     description:'',
@@ -41,7 +36,7 @@ function AdminAddEvent() {
   },
 });
 
-      console.log('User created:', response.data);
+      console.log('Add event:', response.data);
 
       console.log('Frontend successfully connected to the database');
       
